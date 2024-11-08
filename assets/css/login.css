@@ -22,16 +22,29 @@ body {
     border-radius: 5px;
 }
 
+.container #profile {
+    background-color: lightgrey;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
 .container #title {
     font-size: 1.5rem;
     margin: 0px;
     padding: 0px;
+    text-align: center;
 }
 
 .container #subtitle {
     font-size: .5rem;
     margin: 0px;
     padding: 0px;
+    text-align: center;
 }
 
 .login-form {
