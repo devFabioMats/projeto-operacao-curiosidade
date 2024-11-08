@@ -13,12 +13,21 @@
         </tr>
     </table>
 
-<h2>🖼️ Protótipo</h2>
+<h2>⚙️ Protótipo</h2>
 
-<img src="#" alt="Projeto">
+<table>
+    <tr>
+        <td>
+            <img src="./pics/login.png" alt="login">
+        </td>
+        <td>
+            <img src="./pics/dashboard.png" alt="dashboard">
+        </td>
+    </tr>
+</table>    
 
 'Operação Curiosidade' <br>
-Disponível em: https://
+Disponível em: [Link do protótipo no Figma](https://www.figma.com/proto/wfbS3foknx3oKuguBUlkRa/Opera%C3%A7%C3%A3o-Curiosidade?node-id=0%3A1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=0%3A3)
 
 <h2>⚙️ Tecnologias utilizadas</h2>
 
