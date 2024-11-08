@@ -8,7 +8,7 @@
             </td>
             <td>
                 <b>Objetivo:</b>
-                <p>Desenvolver uma interface onde seja possível administrar as informações da Operação Curiosidade feita com alguém, permitindo que o usuário consiga ter uma visão geral sobre uma determinada pessoa quando quiser.</p>
+                <p style="text-align: justify">Desenvolver uma interface onde seja possível administrar as informações da Operação Curiosidade feita com alguém, permitindo que o usuário consiga ter uma visão geral sobre uma determinada pessoa quando quiser.</p>
             </td>
         </tr>
     </table>
