@@ -4,7 +4,7 @@
   <table>
         <tr>
             <td>
-                <img src="./pics/operacao-curiosidade-cebola.png" alt="cebola" width="200">
+                <img src="./pics/operacao-curiosidade-cebola.png" alt="cebola" >
             </td>
             <td>
                 <b>Objetivo:</b>
