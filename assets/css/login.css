@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Passion+One:wght@400;700;900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    flex-flow: column;
+    justify-content: center;   
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.container #title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
