@@ -2,46 +2,54 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Passion+One:wght@400;700;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: auto; 
+    margin: auto;
     background-color: #f5f5f5;
 }
 
 .container {
     background-color: #ffffff;
+    width: 569px;
+    height: 576px;
     display: flex;
-    font-family: 'Inter', sans-serif;
     flex-flow: column;
-    justify-content: center;   
     align-items: center;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 0.2rem;
 }
 
 .container #profile {
+    font-family: 'Inter', sans-serif;
     background-color: lightgrey;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 6.25rem;
-    height: 6.25rem;
+    width: 163px;
+    height: 163px;
+    margin: 2rem;
+    padding: 0;
 }
 
 .container #title {
-    font-size: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
     margin: 0px;
     padding: 0px;
+    line-height: 48.41px;
     text-align: center;
 }
 
 .container #subtitle {
-    font-size: .5rem;
+    font-size: .813rem;
+    font-weight: 400;
+    line-height: 15.73px;
     margin: 0px;
     padding: 0px;
     text-align: center;
@@ -49,9 +57,32 @@ body {
 
 .login-form {
     display: flex;
-    width: 100%;
     flex-flow: column;
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-input {
+    margin: 1rem auto 1rem;
+    padding-left: 0.8rem;
+    width: 343px;
+    height: 52px;
+    border: 2.7px solid #000;
+    font-weight: 400;
+    font-size: 0.938rem;
+}
+
+.login-submit {
+    width: 365px;
+    height: 52px;
+    margin: 1rem auto 1rem;
+    padding: 5px;
+    border-radius: 6px;
+    border: 2px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
