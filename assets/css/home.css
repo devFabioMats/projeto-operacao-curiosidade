@@ -26,32 +26,72 @@ body {
     background-color: var(--backgroundBody);
     display: flex;
     flex-direction: row;
-    gap: 10px;
 }
 
 aside {
-
-    background-color: var(--backgroundHeader);
+    background-color: var(--backgroundContent);
     border: 2px solid black;
+    max-width: 339px;
+    height: 100vh;
+    padding: 1rem;
 }
 
 aside .logo-box {
-
-    background-color: var(--backgroundTitle);
-    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    background-color: var(--backgroundTitle);;
+    width: 297px;
+    height: 62px;
+    font-family: var(--inter);
 }
 
+aside .logo-box h1 {
+    box-sizing: content-box;
+    margin: 0 1rem 0 1rem;
+    padding: 0;
+    font-size: 2.5rem;
+    font-weight: 1000;
+    line-height: 48.41px;
+}
 
-header {
-
-    background-color: var(--searchBox);
-    border: 2px solid black;
+aside .logo-box p {
+    margin: 0;
+    font-size: .813rem;
+    font-weight: 400;
 }
 
 main {
-
-    background-color: var(--backgroundContent);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroundBody);
     border: 2px solid black;
+    height: 100vh;
+    margin: 1rem;
+    width: 100vw;
+}
+
+main header {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--backgroundHeader);
+    border: 1px solid black;
+    margin: 1rem;
+}
+
+main header .profile-box {
+    display: flex;
+    flex-direction: row;
+}
+
+main header .profile-box img {
+    height: 3.5rem;
+}
+
+main .dashboard {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--backgroundContent);
+    margin: 1rem;
 }
 
 .table-box {
