@@ -38,7 +38,8 @@ aside {
 aside .logo-box {
     display: flex;
     align-items: center;
-    background-color: var(--backgroundTitle);;
+    background-color: var(--backgroundTitle);
+    ;
     width: 297px;
     height: 62px;
     font-family: var(--inter);
@@ -60,14 +61,15 @@ aside .logo-box p {
 }
 
 aside ul {
-    list-style-type: none; 
+    list-style-type: none;
     padding: 0;
     margin-top: 2rem;
     color: black;
 }
 
 aside ul li {
-    margin-bottom: 1rem; /* Adiciona espaçamento entre os itens da lista, se necessário */
+    margin-bottom: 1rem;
+    /* Adiciona espaçamento entre os itens da lista, se necessário */
 }
 
 aside ul li a {
@@ -115,8 +117,10 @@ main .dashboard {
 main .dashboard .cards {
     background-color: var(--backgroundContent);
     border: 1px solid black;
-    flex: 1; /* Permitir que os cards cresçam igualmente */
-    margin: 0 0.5rem; /* Espaçamento entre os cards */
+    flex: 1;
+    /* Permitir que os cards cresçam igualmente */
+    margin: 0 0.5rem;
+    /* Espaçamento entre os cards */
 }
 
 .table-box {
@@ -124,4 +128,3 @@ main .dashboard .cards {
     margin: 0 1rem 1rem 1rem;
     height: 100vh;
 }
-
