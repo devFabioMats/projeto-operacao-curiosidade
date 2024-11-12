@@ -5,8 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --backgroundColor: #f5f5f5;
+    --backgroundTitle: #EFF4FC;
     --profileColor: lightgrey;
+    --searchBox: #F6F6F6;
+    --backgroundHeader: #EDEDED;
+    --backgroundBody: #F5F5F5;
+    --backgroundContent: #FFFFFF;
 
     --inter: "Inter", sans-serif;
     --roboto: "Roboto", sans-serif;
@@ -15,4 +19,45 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: var(--roboto)
+}
+
+body {
+    background-color: var(--backgroundBody);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+aside {
+
+    background-color: var(--backgroundHeader);
+    border: 2px solid black;
+}
+
+aside .logo-box {
+
+    background-color: var(--backgroundTitle);
+    border: 2px solid black;
+}
+
+
+header {
+
+    background-color: var(--searchBox);
+    border: 2px solid black;
+}
+
+main {
+
+    background-color: var(--backgroundContent);
+    border: 2px solid black;
+}
+
+.table-box {
+    border: 1px solid black;
+}
+
+.cards {
+    border: 1px solid black;
 }
