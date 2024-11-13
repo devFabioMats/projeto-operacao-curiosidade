@@ -68,13 +68,24 @@ nav ul {
 }
 
 nav ul li {
-    margin-bottom: 1rem;
-    /* Adiciona espaçamento entre os itens da lista, se necessário */
+    margin-bottom: 1rem; /* Adiciona espaçamento entre os itens da lista, se necessário */
+
+}
+
+nav ul li .material-symbols-outlined {
+    display: flex;
+    align-self: center;
+}
+
+nav ul li #cadastro{
+    border: 1px solid black;
 }
 
 nav ul li a {
     color: black;
     text-decoration: none;
+    font-family: var(--roboto);
+    font-size: 1.125rem;
 }
 
 nav ul li a:hover {
@@ -95,18 +106,19 @@ main header {
     margin: 1rem;
     padding: .2rem;
     align-items: center; /* Alinha os itens verticalmente ao centro */
+    font-family: var(--roboto);
 }
 
 main header .search-box {
     display: flex;
     flex-direction: row;
-    margin: .5rem;
+    margin-left: 1rem;
     border: none;
 }
 
 main header .search-box input {
     width: 25.25rem;
-    height: 2rem;
+    height: 2.2rem;
     color: #808080;
     font-weight: 400;
     padding-left: 1rem;
@@ -135,22 +147,19 @@ main header .profile-box img {
 main header .profile-box a{
     color: #4B4949;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
 }
 
 main header .profile-box #nome {
-    margin: 0;
     padding: 0 1.5rem 0 0;
     border-right: 1px solid #C1C0C0;
-    font-size: 1rem;
-    font-weight: 400;
 }
 
 main header .profile-box #sair {
-    margin: 0;
-    padding: 0 1rem 0 1.5rem;
+    padding: 0 1.5rem 0 1.5rem;
     border-left: 1px solid #C1C0C0;
-    font-size: 1rem;
-    font-weight: 400;
 }
 
 main .dashboard {
@@ -163,13 +172,12 @@ main .dashboard {
 main .dashboard .cards {
     background-color: var(--backgroundContent);
     border: 1px solid black;
-    flex: 1;
-    /* Permitir que os cards cresçam igualmente */
-    margin: 0 0.5rem;
-    /* Espaçamento entre os cards */
+    flex: 1; /* Permitir que os cards cresçam igualmente */
+    margin: 0 0.5rem; /* Espaçamento entre os cards */
+    height: 12.5rem;
 }
 
-.table-box {
+main .table-box {
     border: 1px solid black;
     margin: 0 1rem 1rem 1rem;
     height: 100vh;
