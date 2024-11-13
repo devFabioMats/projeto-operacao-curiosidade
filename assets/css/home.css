@@ -91,25 +91,66 @@ main header {
     display: flex;
     flex-direction: row;
     background-color: var(--backgroundHeader);
-    border: 1px solid black;
+    border-radius: .3rem;
     margin: 1rem;
+    padding: .2rem;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
 }
 
 main header .search-box {
     display: flex;
     flex-direction: row;
-    margin: 1rem;
+    margin: .5rem;
+    border: none;
+}
+
+main header .search-box input {
+    width: 25.25rem;
+    height: 2rem;
+    color: #808080;
+    font-weight: 400;
+    padding-left: 1rem;
+    background-color: var(--searchBox);
+    border: none; /* Remove qualquer borda padrão */
+    outline: none; /* Remove a borda ao clicar no input */
 }
 
 main header .profile-box {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; /* Empurra a profile-box para o final do header */
 }
 
 main header .profile-box img {
     height: 2.6rem;
-    width: 2.6rem;;
+    width: 2.6rem;
     border-radius: 50%;
+    align-self: center;
+    border: 1px solid #D9D9D9;
+    margin-right: 1rem;
+}
+
+main header .profile-box a{
+    color: #4B4949;
+    text-decoration: none;
+}
+
+main header .profile-box #nome {
+    margin: 0;
+    padding: 0 1.5rem 0 0;
+    border-right: 1px solid #C1C0C0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+main header .profile-box #sair {
+    margin: 0;
+    padding: 0 1rem 0 1.5rem;
+    border-left: 1px solid #C1C0C0;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 main .dashboard {
