@@ -84,9 +84,6 @@ nav ul li a:hover {
 main {
     display: flex;
     flex-direction: column;
-    background-color: var(--backgroundBody);
-    border: 2px solid black;
-    margin: 1rem;
     width: 100vw;
 }
 
@@ -98,13 +95,21 @@ main header {
     margin: 1rem;
 }
 
+main header .search-box {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+
 main header .profile-box {
     display: flex;
     flex-direction: row;
 }
 
 main header .profile-box img {
-    height: 3.5rem;
+    height: 2.6rem;
+    width: 2.6rem;;
+    border-radius: 50%;
 }
 
 main .dashboard {
