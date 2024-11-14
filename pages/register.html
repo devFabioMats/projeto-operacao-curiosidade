@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/register.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-box">
+            <h1 id="title">OC</h1>
+            <p id="subtitle">Operação Curiosidade</p>
+        </div>
+        <ul>
+            <li><span class="material-symbols-outlined">home</span><a href="#">Home</a></li>
+            <li id="cadastro"><span class="material-symbols-outlined">person_add</span><a href="#">Cadastro</a></li>
+            <li><span class="material-symbols-outlined">insert_chart</span><a href="#">Relatórios</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <div class="search-box">
+                <input type="text" id="search-box" placeholder="Pesquisar...">
+            </div>
+            <div class="profile-box">
+                <img src="../assets/pics/foto-perfil.jpg" alt="Foto de Perfil de Fabio">
+                <h3 id="nome"><a href="#">Fabio Eizo Matsumoto</a></h3>
+                <h id="sair"><a href="#">SAIR</a></h3>
+            </div>
+        </header>
+        <section class="table-box">
+            <table>
+                <caption>Cadastros</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">NOME</th>
+                        <th scope="col">E-MAIL</th>
+                        <th scope="col" id="status">STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stephanie Nichols</td>
+                        <td>stephanienichols@gmail.com</td>
+                        <td id="status">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Jeffrey Kane</td>
+                        <td>jeffrey_kane@yahoo.com</td>
+                        <td id="status">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Darin Miller</td>
+                        <td>darinmiller01@gmail.com</td>
+                        <td id="status">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Andrew Stuart</td>
+                        <td>adrewstuart@outlook.com</td>
+                        <td id="status">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Valerie Aguilar</td>
+                        <td>valerie_aguilar@gmail.com</td>
+                        <td class="inactive" id="status">Inativo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+
+</html>
