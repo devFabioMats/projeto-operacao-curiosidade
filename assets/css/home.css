@@ -198,6 +198,23 @@ main section.dashboard div.cards {
     margin: 0 0.5rem;
     /* Espaçamento entre os cards */
     height: 12.5rem;
+    font-family: var(--roboto);
+    font-weight: 400;
+}
+
+main section.dashboard div.cards h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 35px 0;
+    font-size: 4rem;
+}
+
+main section.dashboard div.cards p {
+    display: flex;
+    justify-content: right;
+    padding: 0 .7rem 0 0;
+
 }
 
 main section.table-box {
