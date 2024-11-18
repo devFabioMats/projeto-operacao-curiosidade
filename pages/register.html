@@ -34,41 +34,51 @@
                 <h id="sair"><a href="#">SAIR</a></h3>
             </div>
         </header>
-        <section class="table-box">
-            <h2>Últimos cadastros</h2>
-            <ul class="list">
-                <li class="list-header">
-                    <span>NOME</span>
-                    <span>E-MAIL</span>
-                    <span>STATUS</span>
-                </li>
-                <li class="list-item">
-                    <span>Stephanie Nichols</span>
-                    <span>stephanienichols@gmail.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="list-item">
-                    <span>Jeffrey Kane</span>
-                    <span>jeffrey_kane@yahoo.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="list-item">
-                    <span>Darin Miller</span>
-                    <span>darinmiller01@gmail.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="list-item">
-                    <span>Andrew Stuart</span>
-                    <span>adrewstuart@outlook.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="list-item">
-                    <span>Valerie Aguilar</span>
-                    <span>valerie_aguilar@gmail.com</span>
-                    <span class="inactive">Inativo</span>
-                </li>
-            </ul>
-        </section>
+        <form class="register-form" onsubmit="return validateForm()">
+            <div class="form-header">
+                <h2>Novo Cadastro</h2>
+                <label>
+                    <input type="checkbox" name="status" value="ativo"> Ativo
+                </label>
+            </div>
+
+            <div class="section-divider">
+                <h3>1º Fatos e Dados</h3>
+            </div>
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" required>
+
+            <div class="linha-idade-email">
+                <div class="div-idade">
+                    <label for="idade">Idade</label>
+                    <input type="number" id="input-idade" name="idade">
+                </div>
+                <div class="div-email">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="input-email" name="email">
+                </div>
+            </div>
+
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" name="endereco">
+
+            <div class="section-divider">
+                <h3>2º Interesses</h3>
+            </div>
+            <textarea id="interesses" name="interesses" rows="4"></textarea>
+
+            <div class="section-divider">
+                <h3>3º Sentimentos</h3>
+            </div>
+            <textarea id="sentimento" name="sentimento" rows="4"></textarea>
+
+            <div class="section-divider">
+                <h3>4º Valores</h3>
+            </div>
+            <textarea id="valores" name="valores" rows="4"></textarea>
+
+            <button type="submit">GRAVAR</button>
+        </form>
     </main>
 
 </body>
