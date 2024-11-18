@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="../assets/css/register.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Cadastro</title>
+    <titulo>Cadastro</titulo>
 </head>
 
 <body>
 
     <nav>
-        <div class="logo-box">
-            <h1 id="title">OC</h1>
-            <p id="subtitle">Operação Curiosidade</p>
+        <div class="box-logo">
+            <h1 id="titulo">OC</h1>
+            <p id="subtitulo">Operação Curiosidade</p>
         </div>
         <ul>
             <li><span class="material-symbols-outlined">home</span><a href="#">Home</a></li>
@@ -25,16 +25,16 @@
     </nav>
     <main>
         <header>
-            <div class="search-box">
-                <input type="text" id="search-box" placeholder="Pesquisar...">
+            <div class="box-pesquisar">
+                <input type="text" id="box-pesquisar" placeholder="Pesquisar...">
             </div>
-            <div class="profile-box">
+            <div class="box-perfil">
                 <img src="../assets/pics/foto-perfil.jpg" alt="Foto de Perfil de Fabio">
                 <h3 id="nome"><a href="#">Fabio Eizo Matsumoto</a></h3>
                 <h id="sair"><a href="#">SAIR</a></h3>
             </div>
         </header>
-        <form class="register-form" onsubmit="return validateForm()">
+        <form class="form-registro" onsubmit="return validateForm()">
             <div class="form-header">
                 <h2>Novo Cadastro</h2>
                 <label>
@@ -42,7 +42,7 @@
                 </label>
             </div>
 
-            <div class="section-divider">
+            <div class="divisor-titulos">
                 <h3>1º Fatos e Dados</h3>
             </div>
             <label for="nome">Nome <span class="required">*</span></label>
@@ -62,17 +62,17 @@
             <label for="endereco">Endereço</label>
             <input type="text" id="endereco" name="endereco">
 
-            <div class="section-divider">
+            <div class="divisor-titulos">
                 <h3>2º Interesses</h3>
             </div>
             <textarea id="interesses" name="interesses" rows="4"></textarea>
 
-            <div class="section-divider">
+            <div class="divisor-titulos">
                 <h3>3º Sentimentos</h3>
             </div>
             <textarea id="sentimento" name="sentimento" rows="4"></textarea>
 
-            <div class="section-divider">
+            <div class="divisor-titulos">
                 <h3>4º Valores</h3>
             </div>
             <textarea id="valores" name="valores" rows="4"></textarea>
