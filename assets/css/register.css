@@ -210,7 +210,7 @@ main section.table-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.125rem 1rem;
+    padding: 0.4rem 1rem;
     padding-right: 1rem;
     border-bottom: 1px solid #0000003a;
 }
