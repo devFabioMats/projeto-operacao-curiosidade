@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/css/tela-login.css">
     <title>Login</title>
 </head>
-
 <body>
     <main>
         <div class="container">
@@ -16,12 +15,14 @@
                 <p id="subtitulo">Operação Curiosidade</p>
             </div>
             <form class="form-login">
-                <input class="login-input" type="text" id="username" placeholder="Email" required />
-                <input class="login-input" type="password" id="password" placeholder="Senha" />
-                <input class="login-submit" type="button" value="Entrar" id="submit" onclick="validate()" />
+                <input class="login-input" type="email" id="login" placeholder="Email" required />
+                <input class="login-input" type="password" id="senha" placeholder="Senha" required/>
+                <button type="submit" onclick="validacao()">ENTRAR</button>
+                <input class="login-submit" type="button" value="Entrar" id="submit" onclick="validacao(event)"/>
             </form>
         </div>
     </main>
+    <script src="../assets/js/validacao-login.js"></script>
 </body>
 
 </html>
