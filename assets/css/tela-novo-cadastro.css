@@ -63,10 +63,9 @@
     width: 100%;
 }
 
-#idade {
+.idade {
     width: 100%;
 }
-
 #email {
     width: 100%;
 }
@@ -103,9 +102,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-.required {
-    color: red;
+    background-color: #185c1b;
 }
