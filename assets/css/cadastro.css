@@ -264,6 +264,7 @@ button[type="submit"] {
     background-color: #61A057;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 700;
