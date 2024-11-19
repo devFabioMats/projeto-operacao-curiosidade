@@ -199,7 +199,8 @@ main header div.box-perfil #sair {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 2.6rem;;
+    padding-right: 2.6rem;
+    ;
     color: #00000085;
 }
 
@@ -221,12 +222,12 @@ main header div.box-perfil #sair {
     margin-bottom: 1rem;
 }
 
-.div-idade{
+.div-idade {
     display: flex;
     flex-direction: column;
 }
 
-.div-email{
+.div-email {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -236,7 +237,7 @@ main header div.box-perfil #sair {
     width: 100%;
 }
 
-#input-email {	
+#input-email {
     width: 100%;
 }
 
