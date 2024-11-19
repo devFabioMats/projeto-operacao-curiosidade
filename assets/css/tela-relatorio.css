@@ -193,14 +193,13 @@ main section.box-tabela {
 }
 
 .box-tabela h2 {
-    margin: 0;
+    margin: 0 0 2rem 0;
     padding: 1rem 0;
     font-size: 1.125rem;
     color: #00000086;
 }
 
 .lista {
-    lista-style-type: none;
     padding: 0;
     margin: 0;
 }
@@ -208,10 +207,8 @@ main section.box-tabela {
 .lista-header,
 .lista-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.4rem 1rem;
-    padding-right: 1rem;
+    padding: 0.4rem 1rem 0.4rem 0rem;
     border-bottom: 1px solid #0000003a;
 }
 
@@ -223,7 +220,6 @@ main section.box-tabela {
 
 .lista-item {
     color: #000000b9;
-    padding-right: 1.35rem;
 }
 
 .lista-item span.inactive {
