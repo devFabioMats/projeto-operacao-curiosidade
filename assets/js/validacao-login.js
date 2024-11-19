@@ -9,8 +9,8 @@ btn.addEventListener("click", (event) => {
 });
 
 function validacao() {
-    var login_usuario = document.getElementById("login").value;
-    var senha_usuario = document.getElementById("senha").value;
+    let login_usuario = document.getElementById("login").value;
+    let senha_usuario = document.getElementById("senha").value;
 
     if (login_usuario === "" || senha_usuario === "") {
         alert("⚠️ Todos os campos devem estar preenchidos.");
