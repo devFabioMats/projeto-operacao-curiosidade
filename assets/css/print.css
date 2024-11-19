@@ -5,8 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --backgroundTitle: #EFF4FC;
-    --profileColor: lightgrey;
+    --backgroundtitulo: #EFF4FC;
+    --perfilColor: lightgrey;
     --searchBox: #F6F6F6;
     --backgroundHeader: #EDEDED;
     --backgroundBody: #F5F5F5;
@@ -35,17 +35,17 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-nav div.logo-box {
+nav div.box-logo {
     display: flex;
     align-items: center;
-    background-color: var(--backgroundTitle);
+    background-color: var(--backgroundtitulo);
     ;
     width: 297px;
     height: 62px;
     font-family: var(--inter);
 }
 
-nav div.logo-box h1 {
+nav div.box-logo h1 {
     box-sizing: content-box;
     margin: 0 1rem 0 1rem;
     padding: 0;
@@ -54,7 +54,7 @@ nav div.logo-box h1 {
     line-height: 48.41px;
 }
 
-nav div.logo-box p {
+nav div.box-logo p {
     margin: 0;
     font-size: .813rem;
     font-weight: 400;
@@ -63,7 +63,7 @@ nav div.logo-box p {
 nav ul {
     display: flex;
     flex-direction: column;
-    list-style-type: none;
+    lista-style-type: none;
     padding: 0;
     margin-top: 2rem;
     color: black;
@@ -127,14 +127,14 @@ main header {
     font-family: var(--roboto);
 }
 
-main header div.search-box {
+main header div.box-pesquisar {
     display: flex;
     flex-direction: row;
     margin-left: 1rem;
     border: none;
 }
 
-main header div.search-box input {
+main header div.box-pesquisar input {
     width: 25.25rem;
     height: 2.2rem;
     color: #808080;
@@ -147,16 +147,16 @@ main header div.search-box input {
     /* Remove a borda ao clicar no input */
 }
 
-main header div.profile-box {
+main header div.box-perfil {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     margin-left: auto;
-    /* Empurra a profile-box para o final do header */
+    /* Empurra a box-perfil para o final do header */
 }
 
-main header div.profile-box img {
+main header div.box-perfil img {
     height: 2.6rem;
     width: 2.6rem;
     border-radius: 50%;
@@ -165,7 +165,7 @@ main header div.profile-box img {
     margin-right: 1rem;
 }
 
-main header div.profile-box a {
+main header div.box-perfil a {
     color: #4B4949;
     text-decoration: none;
     font-size: 1rem;
@@ -173,17 +173,17 @@ main header div.profile-box a {
     margin: 0;
 }
 
-main header div.profile-box #nome {
+main header div.box-perfil #nome {
     padding: 0 1.5rem 0 0;
     border-right: 1px solid #C1C0C0;
 }
 
-main header div.profile-box #sair {
+main header div.box-perfil #sair {
     padding: 0 1.5rem 0 1.5rem;
     border-left: 1px solid #C1C0C0;
 }
 
-main section.table-box {
+main section.box-tabela {
     margin: 0 1rem 1rem 1rem;
     height: 100vh;
     box-sizing: border-box;
@@ -192,21 +192,21 @@ main section.table-box {
     font-family: var(--roboto);
 }
 
-.table-box h2 {
+.box-tabela h2 {
     margin: 0;
     padding: 1rem 0;
     font-size: 1.125rem;
     color: #00000086;
 }
 
-.list {
-    list-style-type: none;
+.lista {
+    lista-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.list-header,
-.list-item {
+.lista-header,
+.lista-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -215,17 +215,17 @@ main section.table-box {
     border-bottom: 1px solid #0000003a;
 }
 
-.list-header {
+.lista-header {
     font-weight: 500;
     font-size: 0.875rem;
     color: #00000086;
 }
 
-.list-item {
+.lista-item {
     color: #000000b9;
     padding-right: 1.35rem;
 }
 
-.list-item span.inactive {
+.lista-item span.inactive {
     color: red;
 }
