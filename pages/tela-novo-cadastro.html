@@ -33,15 +33,15 @@
             </div>
             <div class="box-perfil">
                 <img src="../assets/pics/foto-perfil.jpg" alt="Foto de Perfil de Fabio">
-                <h3 class="nome"><a href="tela-login.html">Fabio Eizo Matsumoto</a></h3>
-                <h class="sair"><a href="tela-login.html">SAIR</a></h3>
+                <h3 id="nome"><a href="tela-login.html">Fabio Eizo Matsumoto</a></h3>
+                <h id="sair"><a href="tela-login.html">SAIR</a></h3>
             </div>
         </header>
-        <form class="form-registro" onsubmit="return validateForm()">
+        <form class="form-registro">
             <div class="form-header">
                 <h2>Novo Cadastro</h2>
                 <label>
-                    <input type="checkbox" name="status" value="ativo"> Ativo
+                    <input id="status" type="checkbox" name="status" value="Ativo" checked> Ativo
                 </label>
             </div>
 
@@ -50,7 +50,7 @@
             </div>
 
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome">
+            <input type="text" id="nome-cadastro" name="nome">
 
             <div class="linha-idade-email">
                 <div class="div-idade">
@@ -82,11 +82,11 @@
             </div>
             <textarea id="valores" name="valores" rows="4"></textarea>
 
-            <button type="submit" id="btn" onclick="gravar()">GRAVAR</button>
+            <button type="submit" id="btn-gravar">GRAVAR</button>
         </form>
     </main>
 
-    <script src="../assets/js/novo-cadastro.js"></script>
+    <script src="../assets/js/cadastrar-colaborador.js"></script>
 </body>
 
 </html>
