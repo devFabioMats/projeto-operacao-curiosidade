@@ -109,6 +109,14 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+ul > li:hover {
+    background-color: lightgrey;
+}
+
+.lista-header:hover {
+    background-color: white;
+}
+
 main {
     display: flex;
     flex-direction: column;
