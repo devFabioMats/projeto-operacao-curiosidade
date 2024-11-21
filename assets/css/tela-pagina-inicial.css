@@ -104,6 +104,6 @@ main section.box-tabela {
     padding-right: 1.35rem;
 }
 
-.lista-item span.inactive {
+.lista-item span.inativo {
     color: red;
 }
