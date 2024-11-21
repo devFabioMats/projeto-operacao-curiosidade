@@ -11,7 +11,7 @@
     <title>Relatório</title>
 </head>
 
-<body>
+<body onload="carregarDadosGerais()">
     <nav>
         <div class="box-logo">
             <h1 id="titulo">OC</h1>
@@ -44,41 +44,17 @@
                     <a href="tela-novo-cadastro.html"><button type="submit">IMPRIMIR</button></a>
                 </label>
             </div>
-            <ul class="lista">
+            <ul class="lista" id="lista">
                 <li class="lista-header">
                     <span>NOME</span>
                     <span>E-MAIL</span>
                     <span>STATUS</span>
                 </li>
-                <li class="lista-item">
-                    <span>Stephanie Nichols</span>
-                    <span>stephanienichols@gmail.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="lista-item">
-                    <span>Jeffrey Kane</span>
-                    <span>jeffrey_kane@yahoo.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="lista-item">
-                    <span>Darin Miller</span>
-                    <span>darinmiller01@gmail.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="lista-item">
-                    <span>Andrew Stuart</span>
-                    <span>adrewstuart@outlook.com</span>
-                    <span>Ativo</span>
-                </li>
-                <li class="lista-item">
-                    <span>Valerie Aguilar</span>
-                    <span>valerie_aguilar@gmail.com</span>
-                    <span class="inactive">Inativo</span>
-                </li>
             </ul>
         </section>
     </main>
 
+    <script src="../assets/js/mostrar-lista.js"></script>
 </body>
 
 </html>
