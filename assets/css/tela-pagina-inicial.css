@@ -38,12 +38,12 @@ main section.dashboard div.cards#total h1 {
     color: #415996;
 }
 
-main section.dashboard div.cards#pendente h1 {
-    color: #3F9F2D;
+main section.dashboard div.cards#inativos h1 {
+    color: #C15959;
 }
 
-main section.dashboard div.cards#ultimo-registro h1 {
-    color: #C15959;
+main section.dashboard div.cards#pendentes h1 {
+    color: #3F9F2D;
 }
 
 main section.dashboard div.cards h1 {
@@ -105,5 +105,5 @@ main section.box-tabela {
 }
 
 .lista-item span.inativo {
-    color: red;
+    color: #C15959;
 }
