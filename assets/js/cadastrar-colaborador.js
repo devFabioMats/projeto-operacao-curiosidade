@@ -58,4 +58,6 @@ function gravar() {
     localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
 
     alert("✅ Colaborador cadastrado!");
+
+    window.location.href = "../pages/tela-pagina-inicial.html";
 }
