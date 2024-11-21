@@ -1,8 +1,8 @@
 const colaborador = [
     {
         status: "Ativo",
-        nome: "Fulano",
-        idade: 30,
+        nome: "Fabio Matsumoto",
+        idade: 21,
         email: "fabio@gmail.com",
         endereco: "",
         interesses: "",
@@ -11,9 +11,9 @@ const colaborador = [
     },
     {
         status: "Ativo",
-        nome: "fabio",
-        idade: 30,
-        email: "fabio@gmail.com",
+        nome: "Nelson Junior",
+        idade: 18,
+        email: "nelsonjr@gmail.com",
         endereco: "",
         interesses: "",
         sentimento: "",
@@ -21,9 +21,9 @@ const colaborador = [
     },
     {
         status: "Inativo",
-        nome: "caio",
-        idade: 30,
-        email: "fabio@gmail.com",
+        nome: "Rodrigo de Sá",
+        idade: 21,
+        email: "rodrigosa@outlook.com",
         endereco: "",
         interesses: "",
         sentimento: "",
@@ -52,7 +52,7 @@ function criarLista(colaboradoresObj) {
         let spanStatus = document.createElement('span');
         spanStatus.innerText = colaborador.status;
 
-        if(spanStatus.innerText === 'Inativo') {
+        if (spanStatus.innerText === 'Inativo') {
             spanStatus.setAttribute('class', 'inativo');
         }
 
@@ -71,9 +71,17 @@ pesquisar.addEventListener('keyup', () => {
     let pesquisarValor = pesquisar.value.toLowerCase();
     const lista = document.getElementById('lista');
     const colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-    lista.innerHTML = '';
+
+    lista.innerHTML = `
+        <li class="lista-header">
+            <span>Nome</span>
+            <span>E-mail</span>
+            <span>Status</span>
+        </li>
+    `;
+
     colaboradores.forEach(colaborador => {
-        if(colaborador.nome.toLowerCase().includes(pesquisarValor)) {
+        if (colaborador.nome.toLowerCase().includes(pesquisarValor)) {
             criarLista([colaborador]);
         }
     })
