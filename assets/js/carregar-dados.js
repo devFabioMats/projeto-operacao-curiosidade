@@ -37,16 +37,28 @@ function carregarDados() {
 
 const colaboradoresObj = JSON.parse(localStorage.getItem('colaboradores'));
 
-atualizarTotalCadastros(colaboradoresObj);
+
 
 function atualizarTotalCadastros(colaboradoresObj) {
-    debugger;
     let totalCadastros = colaboradoresObj.length;
+    let totalInativos = colaboradoresObj.filter(colaborador => colaborador.status === 'Inativo').length;
+    let totalPendentes = 0;
+    const colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+
+    colaboradores.forEach(colaborador => {
+        if (colaborador.idade == "" || colaborador.endereco == ""|| colaborador.interesses == ""|| colaborador.sentimento == ""|| colaborador.valores == "") {
+            totalPendentes++;
+        }
+    })
+
     document.getElementById('total').querySelector('h1').innerText = totalCadastros;
+    document.getElementById('inativos').querySelector('h1').innerText = totalInativos;
+    document.getElementById('pendentes').querySelector('h1').innerText = totalPendentes;
 }
 
 function carregarDadosGerais() {
     criarLista(colaboradoresObj);
+    atualizarTotalCadastros(colaboradoresObj);
 }
 
 function criarLista(colaboradoresObj) {
