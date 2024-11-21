@@ -37,6 +37,14 @@ function carregarDados() {
 
 const colaboradoresObj = JSON.parse(localStorage.getItem('colaboradores'));
 
+atualizarTotalCadastros(colaboradoresObj);
+
+function atualizarTotalCadastros(colaboradoresObj) {
+    debugger;
+    let totalCadastros = colaboradoresObj.length;
+    document.getElementById('total').querySelector('h1').innerText = totalCadastros;
+}
+
 function carregarDadosGerais() {
     criarLista(colaboradoresObj);
 }
@@ -86,3 +94,5 @@ pesquisar.addEventListener('keyup', () => {
         }
     })
 })
+
+window.onload = carregarDadosGerais;
