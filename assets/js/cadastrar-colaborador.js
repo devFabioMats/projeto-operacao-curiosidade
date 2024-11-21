@@ -59,5 +59,5 @@ function gravar() {
 
     alert("✅ Colaborador cadastrado!");
 
-    window.location.href = "../pages/tela-pagina-inicial.html";
+    window.location.href = "../pages/tela-pagina-inicial.html"; 
 }
