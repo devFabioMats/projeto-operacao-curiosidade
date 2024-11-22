@@ -75,7 +75,6 @@ button[type="submit"]:hover {
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem 1rem;
-    padding-right: 1rem;
     border-bottom: 1px solid #0000003a;
 }
 
@@ -87,9 +86,8 @@ button[type="submit"]:hover {
 
 .lista-item {
     color: #000000b9;
-    padding-right: 1.35rem;
 }
 
-.lista-item span.inactive {
-    color: red;
+.lista-item span.inativo {
+    color: #C15959;
 }
