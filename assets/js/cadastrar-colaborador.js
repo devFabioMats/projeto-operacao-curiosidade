@@ -3,14 +3,9 @@ document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     gravar();
 });
 
-// function gerarId() {
-//     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//     let id;
-//     for (let i = 0; i < 4; i++) {
-//         id = id + caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-//     }
-//     return id;
-// }
+function gerarId() {
+    return Math.floor(Math.random() * 1000000);
+}
 
 function validacao(nome) {
     if (nome == "") {
@@ -21,6 +16,7 @@ function validacao(nome) {
 }
 
 function gravar() {
+    let id = gerarId();
     let nome = document.getElementById("nome-cadastro").value;
     let status = document.getElementById("status");
     let idade = document.getElementById("idade").value;
@@ -41,6 +37,7 @@ function gravar() {
     }
 
     let colaborador = {
+        id,
         status,
         nome,
         idade,
