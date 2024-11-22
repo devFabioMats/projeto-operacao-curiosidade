@@ -47,7 +47,7 @@ function carregarDashboard(colaboradores) {
     let totalPendentes = 0;
 
     colaboradores.forEach(colaborador => {
-        if (colaborador.idade == "" || colaborador.endereco == ""|| colaborador.interesses == ""|| colaborador.sentimento == ""|| colaborador.valores == "") {
+        if (colaborador.idade == "" || colaborador.endereco == "" || colaborador.interesses == "" || colaborador.sentimento == "" || colaborador.valores == "") {
             totalPendentes++;
         }
     })
@@ -95,9 +95,9 @@ pesquisar.addEventListener('keyup', () => {
 
     lista.innerHTML = `
         <li class="lista-header">
-            <span>Nome</span>
-            <span>E-mail</span>
-            <span>Status</span>
+            <span>NOME</span>
+            <span>E-MAIL</span>
+            <span>STATUS</span>
         </li>
     `;
 
