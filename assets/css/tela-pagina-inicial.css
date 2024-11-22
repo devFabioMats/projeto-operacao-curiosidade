@@ -87,9 +87,10 @@ main section.box-tabela {
 .lista-item {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
     padding: 0.4rem 1rem;
     border-bottom: 1px solid #0000003a;
+    flex-flow: row wrap;
 }
 
 .lista-header {
