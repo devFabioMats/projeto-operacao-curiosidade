@@ -59,10 +59,6 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.required {
-    color: red;
-}
-
 .lista {
     lista-style-type: none;
     padding: 0;

@@ -68,6 +68,15 @@ function carregarDadosGerais() {
 function criarLista(colaboradores) {
     let lista = document.getElementById('lista');
 
+    lista.innerHTML = `
+        <li class="lista-header">
+            <span>Nome</span>
+            <span>E-mail</span>
+            <span>Status</span>
+            <span>Ações</span>
+        </li>
+    `;
+
     colaboradores.forEach(colaborador => {
         let spanNome = document.createElement('span');
         spanNome.innerText = colaborador.nome;
@@ -80,45 +89,32 @@ function criarLista(colaboradores) {
             spanStatus.setAttribute('class', 'inativo');
         }
 
-        // let spanAcoes = document.createElement('span');
+        let spanAcoes = document.createElement('span');
+        let btnDeletar = document.createElement('span');
+        btnDeletar.classList.add('material-symbols-outlined');
+        btnDeletar.innerText = 'person_remove';
+        btnDeletar.style.cursor = 'pointer';
+        btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
 
-        // let btnEditar = document.createElement('img');
-        // btnEditar.src = './pics/editar.png';
-        // btnEditar.alt = 'Editar';
-        // btnEditar.classList.add('btn-acao');
-        // btnEditar.addEventListener('click', () => editarColaborador(colaborador));
-
-        // let btnExcluir = document.createElement('img');
-        // btnDeletar.src = '../assets/pics/deletar.png';
-        // btnDeletar.alt = 'Deletar';
-        // btnDeletar.classList.add('btn-acao');
-        // btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
-
-        // spanAcoes.appendChild(btnEditar);
-        // spanAcoes.appendChild(btnDeletar);
+        spanAcoes.appendChild(btnDeletar);
 
         let li = document.createElement('li');
         li.setAttribute('class', 'lista-item');
         li.appendChild(spanNome);
         li.appendChild(spanEmail);
         li.appendChild(spanStatus);
-        // li.appendChild(spanAcoes);
+        li.appendChild(spanAcoes);
 
         lista.appendChild(li);
     })
 }
 
-// function editarColaborador(colaborador) {
-//     // Redirecionar para a página de edição com os dados do colaborador
-//     window.location.href = `tela-editar-cadastro.html?id=${colaborador.id}`;
-// }
-
-// function deletarColaborador(colaborador) {
-//     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-//     colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
-//     localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-//     carregarDadosGerais();
-// }
+function deletarColaborador(colaborador) {
+    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+    colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
+    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+    carregarDadosGerais();
+}
 
 // Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
@@ -128,9 +124,10 @@ pesquisar.addEventListener('keyup', () => {
 
     lista.innerHTML = `
         <li class="lista-header">
-            <span>NOME</span>
-            <span>E-MAIL</span>
-            <span>STATUS</span>
+            <span>Nome</span>
+            <span>E-mail</span>
+            <span>Status</span>
+            <span>Ações</span>
         </li>
     `;
 

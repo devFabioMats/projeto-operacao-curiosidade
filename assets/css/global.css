@@ -191,3 +191,7 @@ main header div.box-perfil #sair {
     padding: 0 1.5rem 0 1.5rem;
     border-left: 1px solid #C1C0C0;
 }
+
+.btn-acao {
+    cursor: pointer;
+}
