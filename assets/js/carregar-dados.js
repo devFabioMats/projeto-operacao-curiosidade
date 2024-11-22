@@ -32,16 +32,16 @@ const colaborador = [
     },
 ]
 
-// inicializando com alguns objetos para testar a funcionalidade
+// deixando os dados do localStorage chamado já pra usar nas funções
+const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
+
+// deixa os dados carregados imediatamente no login
 function carregarDados() {
     localStorage.setItem('colaboradores', JSON.stringify(colaborador));
 }
 
-
-const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
-
 // dados da Dashboard
-function atualizarTotalCadastros(colaboradores) {
+function carregarDashboard(colaboradores) {
     let totalCadastros = colaboradores.length;
     let totalInativos = colaboradores.filter(colaborador => colaborador.status === 'Inativo').length;
     let totalPendentes = 0;
@@ -59,7 +59,7 @@ function atualizarTotalCadastros(colaboradores) {
 
 function carregarDadosGerais() {
     criarLista(colaboradores);
-    atualizarTotalCadastros(colaboradores);
+    carregarDashboard(colaboradores);
 }
 
 function criarLista(colaboradores) {
@@ -87,11 +87,11 @@ function criarLista(colaboradores) {
     })
 }
 
+// Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
 pesquisar.addEventListener('keyup', () => {
     let pesquisarValor = pesquisar.value.toLowerCase();
     const lista = document.getElementById('lista');
-    const colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
 
     lista.innerHTML = `
         <li class="lista-header">
