@@ -1,8 +1,8 @@
 <h1>🧅 Projeto: Operação Curiosidade 🧅 
 <H2> <kbd>🚧 EM DESENVOLVIMENTO 🚧</kbd><br><br>
 
-- Acesse a página! [Clique aqui](https://devfabiomats.github.io/projeto-operacao-curiosidade/pages/tela-login.html)
-Login: fabio@gmail.com
+- Acesse a página! [Clique aqui](https://devfabiomats.github.io/projeto-operacao-curiosidade/pages/tela-login.html) <br>
+Login: fabio@gmail.com <br>
 Senha: 123
 <br>
 
