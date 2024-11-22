@@ -65,6 +65,6 @@ main section.box-tabela {
     text-decoration: underline;
 }
 
-.lista-item span.inactive {
-    color: red;
+.lista-item span.inativo {
+    color: #C15959;
 }
