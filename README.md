@@ -1,6 +1,10 @@
 <h1>🧅 Projeto: Operação Curiosidade 🧅 
 <H2> <kbd>🚧 EM DESENVOLVIMENTO 🚧</kbd><br><br>
 
+- Acesse a página! [Link do projeto](https://devfabiomats.github.io/projeto-operacao-curiosidade/pages/tela-login.html)
+- Login: fabio@gmail.com
+- Senha: 123
+
   <table>
         <tr>
             <td>
