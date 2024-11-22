@@ -1,6 +1,7 @@
 // inicializando com alguns objetos para testar a funcionalidade
 const colaborador = [
     {
+        id: 123456,
         status: "Ativo",
         nome: "Fabio Matsumoto",
         idade: 21,
@@ -11,6 +12,7 @@ const colaborador = [
         valores: "Retribuir a família"
     },
     {
+        id: 513754,
         status: "Ativo",
         nome: "Nelson Junior",
         idade: 18,
@@ -21,6 +23,7 @@ const colaborador = [
         valores: ""
     },
     {
+        id: 784215,
         status: "Inativo",
         nome: "Rodrigo de Sá",
         idade: 21,
@@ -77,15 +80,45 @@ function criarLista(colaboradores) {
             spanStatus.setAttribute('class', 'inativo');
         }
 
+        // let spanAcoes = document.createElement('span');
+
+        // let btnEditar = document.createElement('img');
+        // btnEditar.src = './pics/editar.png';
+        // btnEditar.alt = 'Editar';
+        // btnEditar.classList.add('btn-acao');
+        // btnEditar.addEventListener('click', () => editarColaborador(colaborador));
+
+        // let btnExcluir = document.createElement('img');
+        // btnDeletar.src = '../assets/pics/deletar.png';
+        // btnDeletar.alt = 'Deletar';
+        // btnDeletar.classList.add('btn-acao');
+        // btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
+
+        // spanAcoes.appendChild(btnEditar);
+        // spanAcoes.appendChild(btnDeletar);
+
         let li = document.createElement('li');
         li.setAttribute('class', 'lista-item');
         li.appendChild(spanNome);
         li.appendChild(spanEmail);
         li.appendChild(spanStatus);
+        // li.appendChild(spanAcoes);
 
         lista.appendChild(li);
     })
 }
+
+// function editarColaborador(colaborador) {
+//     // Redirecionar para a página de edição com os dados do colaborador
+//     window.location.href = `tela-editar-cadastro.html?id=${colaborador.id}`;
+// }
+
+// function deletarColaborador(colaborador) {
+//     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+//     colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
+//     localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+//     carregarDadosGerais();
+// }
 
 // Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
