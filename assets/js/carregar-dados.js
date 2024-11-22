@@ -1,13 +1,14 @@
+// inicializando com alguns objetos para testar a funcionalidade
 const colaborador = [
     {
         status: "Ativo",
         nome: "Fabio Matsumoto",
         idade: 21,
         email: "fabio@gmail.com",
-        endereco: "",
-        interesses: "",
-        sentimento: "",
-        valores: ""
+        endereco: "Rua da Unimed, 543",
+        interesses: "Judô, Futebol, Música",
+        sentimento: "Amor pelo que faz",
+        valores: "Retribuir a família"
     },
     {
         status: "Ativo",
@@ -31,19 +32,19 @@ const colaborador = [
     },
 ]
 
+// inicializando com alguns objetos para testar a funcionalidade
 function carregarDados() {
     localStorage.setItem('colaboradores', JSON.stringify(colaborador));
 }
 
-const colaboradoresObj = JSON.parse(localStorage.getItem('colaboradores'));
 
+const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
 
-
-function atualizarTotalCadastros(colaboradoresObj) {
-    let totalCadastros = colaboradoresObj.length;
-    let totalInativos = colaboradoresObj.filter(colaborador => colaborador.status === 'Inativo').length;
+// dados da Dashboard
+function atualizarTotalCadastros(colaboradores) {
+    let totalCadastros = colaboradores.length;
+    let totalInativos = colaboradores.filter(colaborador => colaborador.status === 'Inativo').length;
     let totalPendentes = 0;
-    const colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
 
     colaboradores.forEach(colaborador => {
         if (colaborador.idade == "" || colaborador.endereco == ""|| colaborador.interesses == ""|| colaborador.sentimento == ""|| colaborador.valores == "") {
@@ -57,14 +58,14 @@ function atualizarTotalCadastros(colaboradoresObj) {
 }
 
 function carregarDadosGerais() {
-    criarLista(colaboradoresObj);
-    atualizarTotalCadastros(colaboradoresObj);
+    criarLista(colaboradores);
+    atualizarTotalCadastros(colaboradores);
 }
 
-function criarLista(colaboradoresObj) {
+function criarLista(colaboradores) {
     let lista = document.getElementById('lista');
 
-    colaboradoresObj.forEach(colaborador => {
+    colaboradores.forEach(colaborador => {
         let spanNome = document.createElement('span');
         spanNome.innerText = colaborador.nome;
         let spanEmail = document.createElement('span');
