@@ -78,7 +78,7 @@ main section.box-tabela {
 }
 
 .lista {
-    lista-style-type: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
