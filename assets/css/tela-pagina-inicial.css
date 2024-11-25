@@ -26,12 +26,12 @@ main section.dashboard {
 main section.dashboard div.cards {
     background-color: var(--backgroundContent);
     flex: 1;
-    /* Permitir que os cards cresçam igualmente */
     margin: 0 0.5rem;
-    /* Espaçamento entre os cards */
     height: 12.5rem;
     font-family: var(--roboto);
     font-weight: 400;
+    border: 1px solid #0000003a;
+    border-radius: 10px;
 }
 
 main section.dashboard div.cards#total h1 {
@@ -59,6 +59,7 @@ main section.dashboard div.cards p {
     justify-content: right;
     padding: 0 .7rem 0 0;
     color: #00000083;
+    
 }
 
 main section.box-tabela {
@@ -68,6 +69,8 @@ main section.box-tabela {
     padding: 1rem;
     background-color: var(--backgroundContent);
     font-family: var(--roboto);
+    border: 1px solid #0000003a;
+    border-radius: 10px;
 }
 
 .box-tabela h2 {
@@ -79,6 +82,7 @@ main section.box-tabela {
 
 .lista {
     list-style-type: none;
+    position: relative;
     padding: 0;
     margin: 0;
 }
@@ -89,8 +93,10 @@ main section.box-tabela {
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem 1rem;
+    margin: 0;
     border-bottom: 1px solid #0000003a;
-    flex-flow: row wrap;
+
+    right: 0;
 }
 
 .lista-header {
@@ -99,11 +105,33 @@ main section.box-tabela {
     color: #00000086;
 }
 
+.lista-header #span-email {
+    position: absolute;
+    left: 30%;
+}
+
+.span-email {
+    position: absolute;
+    left: 30%;
+}
+
+.lista-header #span-status  {
+    position: absolute;
+    left: 65%;
+}
+
+.span-status{
+    position: absolute;
+    left: 65%;
+}
+
 .lista-item {
     color: #000000b9;
 }
 
 .lista-item span.inativo {
     color: #C15959;
+    position: absolute;
+    left: 65%;
 }
 
