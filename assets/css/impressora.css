@@ -73,13 +73,17 @@
         font-size: 0.875rem;
         color: #00000086;
     }
-    
+
     .lista-item {
         color: #000000b9;
         padding-right: 1.35rem;
     }
-    
-    .lista-item span.inactive {
-        color: red;
+
+    .lista-item span.inativo {
+        color: #C15959;
+    }
+
+    .acoes {
+        display: none;
     }
 }
