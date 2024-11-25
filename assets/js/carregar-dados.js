@@ -70,10 +70,10 @@ function criarLista(colaboradores) {
 
     lista.innerHTML = `
         <li class="lista-header">
-            <span>Nome</span>
-            <span>E-mail</span>
-            <span>Status</span>
-            <span class="acoes">Ações</span>
+            <span>FABIO</span>
+            <span id="span-email">EMAIL</span>
+            <span id="span-status">STATUS</span>
+            <span class="acoes">AÇÕES</span>
         </li>
     `;
 
@@ -82,8 +82,10 @@ function criarLista(colaboradores) {
         spanNome.innerText = colaborador.nome;
         let spanEmail = document.createElement('span');
         spanEmail.innerText = colaborador.email;
+        spanEmail.setAttribute('class', 'span-email');
         let spanStatus = document.createElement('span');
         spanStatus.innerText = colaborador.status;
+        spanStatus.setAttribute('class', 'span-status');
 
         if (spanStatus.innerText === 'Inativo') {
             spanStatus.setAttribute('class', 'inativo');
@@ -92,13 +94,13 @@ function criarLista(colaboradores) {
         let spanAcoes = document.createElement('span');
         spanAcoes.classList.add('acoes');
         
-        let btnDeletar = document.createElement('span');
-        btnDeletar.classList.add('material-symbols-outlined');
-        btnDeletar.innerText = 'person_remove';
-        btnDeletar.style.cursor = 'pointer';
-        btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
+        // let btnDeletar = document.createElement('span');
+        // btnDeletar.classList.add('material-symbols-outlined');
+        // btnDeletar.innerText = 'person_remove';
+        // btnDeletar.style.cursor = 'pointer';
+        // btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
 
-        spanAcoes.appendChild(btnDeletar);
+        // spanAcoes.appendChild(btnDeletar);
 
         let li = document.createElement('li');
         li.setAttribute('class', 'lista-item');
@@ -111,12 +113,12 @@ function criarLista(colaboradores) {
     })
 }
 
-function deletarColaborador(colaborador) {
-    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-    colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
-    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-    carregarDadosGerais();
-}
+// function deletarColaborador(colaborador) {
+//     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+//     colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
+//     localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+//     carregarDadosGerais();
+// }
 
 // Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
@@ -126,10 +128,10 @@ pesquisar.addEventListener('keyup', () => {
 
     lista.innerHTML = `
         <li class="lista-header">
-            <span>Nome</span>
-            <span>E-mail</span>
-            <span>Status</span>
-            <span>Ações</span>
+            <span>NOME</span>
+            <span id="span-email">EMAIL</span>
+            <span id="span-status">STATUS</span>
+            <span class="acoes">AÇÕES</span>
         </li>
     `;
 
