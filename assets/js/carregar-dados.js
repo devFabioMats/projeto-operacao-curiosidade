@@ -73,7 +73,7 @@ function criarLista(colaboradores) {
             <span>Nome</span>
             <span>E-mail</span>
             <span>Status</span>
-            <span>Ações</span>
+            <span class="acoes">Ações</span>
         </li>
     `;
 
@@ -90,6 +90,8 @@ function criarLista(colaboradores) {
         }
 
         let spanAcoes = document.createElement('span');
+        spanAcoes.classList.add('acoes');
+        
         let btnDeletar = document.createElement('span');
         btnDeletar.classList.add('material-symbols-outlined');
         btnDeletar.innerText = 'person_remove';
