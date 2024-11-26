@@ -70,7 +70,7 @@ function criarLista(colaboradores) {
 
     lista.innerHTML = `
         <li class="lista-header">
-            <span>FABIO</span>
+            <span>NOME</span>
             <span id="span-email">EMAIL</span>
             <span id="span-status">STATUS</span>
             <span class="acoes">AÇÕES</span>
@@ -93,14 +93,14 @@ function criarLista(colaboradores) {
 
         let spanAcoes = document.createElement('span');
         spanAcoes.classList.add('acoes');
-        
-        // let btnDeletar = document.createElement('span');
-        // btnDeletar.classList.add('material-symbols-outlined');
-        // btnDeletar.innerText = 'person_remove';
-        // btnDeletar.style.cursor = 'pointer';
-        // btnDeletar.addEventListener('click', () => deletarColaborador(colaborador));
 
-        // spanAcoes.appendChild(btnDeletar);
+        let btnDeletar = document.createElement('span');
+        btnDeletar.classList.add('material-symbols-outlined');
+        btnDeletar.innerText = 'delete_forever';
+        btnDeletar.style.cursor = 'pointer';
+        btnDeletar.addEventListener('click', () => deletarColaborador(colaborador.id));
+
+        spanAcoes.appendChild(btnDeletar);
 
         let li = document.createElement('li');
         li.setAttribute('class', 'lista-item');
@@ -113,12 +113,14 @@ function criarLista(colaboradores) {
     })
 }
 
-// function deletarColaborador(colaborador) {
-//     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-//     colaboradores = colaboradores.filter(c => c.id !== colaborador.id);
-//     localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-//     carregarDadosGerais();
-// }
+function deletarColaborador(idcolaborador) {
+    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+    colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
+    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+    carregarDadosGerais();
+    alert("🗑️ Colaborador deletado!");
+    window.location.reload();
+}
 
 // Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
@@ -134,12 +136,12 @@ pesquisar.addEventListener('keyup', () => {
             <span class="acoes">AÇÕES</span>
         </li>
     `;
-
-    colaboradores.forEach(colaborador => {
-        if (colaborador.nome.toLowerCase().includes(pesquisarValor)) {
-            criarLista([colaborador]);
+        if (pesquisarValor === "") {
+            criarLista(colaboradores);
+        } else {
+            const resultados = colaboradores.filter(colaborador =>
+                colaborador.nome.toLowerCase().includes(pesquisarValor)
+            );
+            criarLista(resultados);
         }
-    })
-})
-
-window.onload = carregarDadosGerais;
+});
