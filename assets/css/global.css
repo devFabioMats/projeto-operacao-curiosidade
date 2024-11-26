@@ -290,12 +290,12 @@ main section.box-tabela {
     left: 30%;
 }
 
-.lista-header #span-status  {
+.lista-header #span-status {
     position: absolute;
     left: 65%;
 }
 
-.span-status{
+.span-status {
     position: absolute;
     left: 65%;
 }

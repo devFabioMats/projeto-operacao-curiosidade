@@ -136,12 +136,12 @@ pesquisar.addEventListener('keyup', () => {
             <span class="acoes">AÇÕES</span>
         </li>
     `;
-        if (pesquisarValor === "") {
-            criarLista(colaboradores);
-        } else {
-            const resultados = colaboradores.filter(colaborador =>
-                colaborador.nome.toLowerCase().includes(pesquisarValor)
-            );
-            criarLista(resultados);
-        }
+    if (pesquisarValor === "") {
+        criarLista(colaboradores);
+    } else {
+        const resultados = colaboradores.filter(colaborador =>
+            colaborador.nome.toLowerCase().includes(pesquisarValor)
+        );
+        criarLista(resultados);
+    }
 });
