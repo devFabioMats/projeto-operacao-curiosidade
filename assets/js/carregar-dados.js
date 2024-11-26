@@ -62,6 +62,10 @@ function carregarDashboard(colaboradores) {
 
 function carregarDadosGerais() {
     criarLista(colaboradores);
+}
+
+function carregarDadosGeraisHome() {
+    criarLista(colaboradores);
     carregarDashboard(colaboradores);
 }
 
@@ -124,24 +128,26 @@ function deletarColaborador(idcolaborador) {
 
 // Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
-pesquisar.addEventListener('keyup', () => {
-    let pesquisarValor = pesquisar.value.toLowerCase();
-    const lista = document.getElementById('lista');
+if (pesquisar) {
+    pesquisar.addEventListener('keyup', () => {
+        let pesquisarValor = pesquisar.value.toLowerCase();
+        const lista = document.getElementById('lista');
 
-    lista.innerHTML = `
-        <li class="lista-header">
-            <span>NOME</span>
-            <span id="span-email">EMAIL</span>
-            <span id="span-status">STATUS</span>
-            <span class="acoes">AÇÕES</span>
-        </li>
-    `;
-    if (pesquisarValor === "") {
-        criarLista(colaboradores);
-    } else {
-        const resultados = colaboradores.filter(colaborador =>
-            colaborador.nome.toLowerCase().includes(pesquisarValor)
-        );
-        criarLista(resultados);
-    }
-});
+        lista.innerHTML = `
+            <li class="lista-header">
+                <span>NOME</span>
+                <span id="span-email">EMAIL</span>
+                <span id="span-status">STATUS</span>
+                <span class="acoes">AÇÕES</span>
+            </li>
+        `;
+        if (pesquisarValor === "") {
+            criarLista(colaboradores);
+        } else {
+            const resultados = colaboradores.filter(colaborador =>
+                colaborador.nome.toLowerCase().includes(pesquisarValor)
+            );
+            criarLista(resultados);
+        }
+    });
+}
