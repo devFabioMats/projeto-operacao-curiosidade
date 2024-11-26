@@ -20,10 +20,13 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin: 1rem;
+    margin: 0rem 1rem 1rem 1rem;
     padding: 1rem;
     background-color: var(--backgroundContent);
     font-family: var(--roboto);
+    overflow-y: auto; 
+    border: 1px solid #0000003a;
+    border-radius: 10px;
 }
 
 .form-header {

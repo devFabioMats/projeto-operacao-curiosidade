@@ -246,6 +246,7 @@ main section.box-tabela {
     font-family: var(--roboto);
     border: 1px solid #0000003a;
     border-radius: 10px;
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
 }
 
 .box-tabela h2 {
