@@ -16,6 +16,11 @@
     --roboto: "Roboto", sans-serif;
 }
 
+.logo {
+    text-decoration: none;
+    color: black;
+}
+
 body {
     background-color: var(--backgroundBody);
     display: flex;
