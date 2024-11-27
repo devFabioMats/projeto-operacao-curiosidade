@@ -66,29 +66,37 @@
     width: 100%;
 }
 
-.idade {
-    width: 100%;
-}
-
-#email {
-    width: 100%;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="email"],
-textarea {
+#endereco, #nome-cadastro {
     width: 100%;
     height: 2.5rem;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #EEEBEB;
+    border: 1px solid #0000003a;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #FCFCFC;  
+}
+
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0000003a;
+    border-radius: 5px;
     box-sizing: border-box;
     background-color: #FCFCFC;
 }
 
 textarea {
-    height: 12%;
+    resize: none;
+    padding: 0.5rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0000003a;
+    border-radius: 5px;
+    background-color: #FCFCFC;
 }
 
 button[type="submit"] {
