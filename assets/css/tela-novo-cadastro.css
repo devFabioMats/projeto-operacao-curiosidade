@@ -16,6 +16,12 @@
     --roboto: "Roboto", sans-serif;
 }
 
+li#cadastro {
+    background-color: #D3E4FF;
+    border: 1px solid #0000003a;
+    border-radius: 10px;
+}
+
 .form-registro {
     display: flex;
     flex-direction: column;

@@ -7,9 +7,15 @@ function gerarId() {
     return Math.floor(Math.random() * 1000000);
 }
 
-function validacao(nome) {
+function validacao(nome, email, idade) {
     if (nome == "") {
         alert("⚠️ O campo nome deve estar preenchido.");
+        return false;
+    } else if (email == "") {
+        alert("⚠️ O campo email deve estar preenchido.");
+        return false;
+    } else if (idade == "") {
+        alert("⚠️ O campo idade deve estar preenchido.");
         return false;
     }
     return true;
@@ -32,7 +38,7 @@ function gravar() {
         status = "Inativo";
     }
 
-    if (!validacao(nome)) {
+    if (!validacao(nome, email, idade)) {
         return;
     }
 
@@ -56,5 +62,5 @@ function gravar() {
 
     alert("✅ Colaborador cadastrado!");
 
-    window.location.href = "../pages/tela-pagina-inicial.html";
+    window.location.href = "../pages/tela-cadastro.html";
 }
