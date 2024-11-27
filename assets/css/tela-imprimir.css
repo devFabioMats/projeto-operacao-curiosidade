@@ -64,6 +64,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #3d4ea6;
+    border: 2px solid #000000a8;
 }
 
 .lista {
