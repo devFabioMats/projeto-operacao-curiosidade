@@ -14,9 +14,9 @@ const colaborador = [
     {
         id: 513754,
         status: "Ativo",
-        nome: "Nelson Junior",
+        nome: "Junior Nelson",
         idade: 18,
-        email: "nelsonjr@gmail.com",
+        email: "juninho_lobao@hotmail.com",
         endereco: "",
         interesses: "",
         sentimento: "",
@@ -25,9 +25,9 @@ const colaborador = [
     {
         id: 784215,
         status: "Inativo",
-        nome: "Rodrigo de Sá",
+        nome: "Matheus Santana",
         idade: 21,
-        email: "rodrigosa@outlook.com",
+        email: "matheus_luanete@outlook.com",
         endereco: "",
         interesses: "",
         sentimento: "",
