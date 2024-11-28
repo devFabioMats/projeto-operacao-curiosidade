@@ -34,10 +34,12 @@ const colaborador = [
     },
 ]
 
+// deixando os dados do localStorage chamado já pra usar nas funções
 const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
-
 function carregarDados() {
+    if (localStorage.getItem('colaboradores') == null) {
     localStorage.setItem('colaboradores', JSON.stringify(colaborador));
+    } 
 }
 
 function carregarDashboard(colaboradores) {
