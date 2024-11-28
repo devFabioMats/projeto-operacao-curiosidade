@@ -49,7 +49,7 @@ function carregarDashboard(colaboradores) {
     let totalPendentes = 0;
 
     colaboradores.forEach(colaborador => {
-        if (colaborador.idade == "" || colaborador.endereco == "" || colaborador.interesses == "" || colaborador.sentimento == "" || colaborador.valores == "") {
+        if (colaborador.endereco == "" || colaborador.interesses == "" || colaborador.sentimento == "" || colaborador.valores == "") {
             totalPendentes++;
         }
     })
