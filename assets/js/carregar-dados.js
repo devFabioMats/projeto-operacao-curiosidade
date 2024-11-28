@@ -1,4 +1,3 @@
-// inicializando com alguns objetos para testar a funcionalidade
 const colaborador = [
     {
         id: 123456,
@@ -16,7 +15,7 @@ const colaborador = [
         status: "Ativo",
         nome: "Junior Nelson",
         idade: 18,
-        email: "juninho_lobao@hotmail.com",
+        email: "juninho@hotmail.com",
         endereco: "",
         interesses: "",
         sentimento: "",
