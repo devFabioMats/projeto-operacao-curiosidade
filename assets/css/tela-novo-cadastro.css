@@ -97,8 +97,8 @@ input[type="email"] {
 
 textarea {
     resize: none;
-    padding: 0.5rem;
-    height: 10rem;
+    padding: 1rem;
+    min-height: 5rem;
     margin-bottom: 1rem;
     border: 1px solid #0000003a;
     border-radius: 5px;
@@ -121,4 +121,5 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #185c1b;
+    border: 2px solid black;
 }
