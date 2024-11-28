@@ -34,15 +34,12 @@ const colaborador = [
     },
 ]
 
-// deixando os dados do localStorage chamado já pra usar nas funções
 const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
 
-// deixa os dados carregados imediatamente no login
 function carregarDados() {
     localStorage.setItem('colaboradores', JSON.stringify(colaborador));
 }
 
-// dados da Dashboard
 function carregarDashboard(colaboradores) {
     let totalCadastros = colaboradores.length;
     let totalInativos = colaboradores.filter(colaborador => colaborador.status === 'Inativo').length;
