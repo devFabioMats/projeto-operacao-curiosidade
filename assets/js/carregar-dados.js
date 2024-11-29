@@ -34,7 +34,6 @@ const colaborador = [
     },
 ]
 
-// deixando os dados do localStorage chamado já pra usar nas funções
 const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
 function carregarDados() {
     if (localStorage.getItem('colaboradores') == null) {
@@ -48,7 +47,7 @@ function carregarDashboard(colaboradores) {
     let totalPendentes = 0;
 
     colaboradores.forEach(colaborador => {
-        if (colaborador.idade == "" || colaborador.endereco == "" || colaborador.interesses == "" || colaborador.sentimento == "" || colaborador.valores == "") {
+        if (colaborador.endereco == "" || colaborador.interesses == "" || colaborador.sentimento == "" || colaborador.valores == "") {
             totalPendentes++;
         }
     })
@@ -124,7 +123,6 @@ function deletarColaborador(idcolaborador) {
     window.location.reload();
 }
 
-// Pesquisar colaboradores
 const pesquisar = document.getElementById('box-pesquisar');
 if (pesquisar) {
     pesquisar.addEventListener('keyup', () => {
