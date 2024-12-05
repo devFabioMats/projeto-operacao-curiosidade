@@ -1,5 +1,6 @@
-<h1>🧅 Projeto: Operação Curiosidade 🧅 </h1>
-<kbd>🚧 EM DESENVOLVIMENTO 🚧</kbd><br><br>
+<h1>🧅 Projeto Front-end: Operação Curiosidade 🧅 </h1>
+
+<kbd>✅ CONCLUÍDO ✅</kbd><br><br>
 
 Acesse a página! [👆 Clique aqui](https://devfabiomats.github.io/projeto-operacao-curiosidade/pages/tela-login.html) <br>
 Login: fabio@gmail.com <br>
