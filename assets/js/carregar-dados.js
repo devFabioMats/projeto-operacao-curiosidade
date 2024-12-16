@@ -37,11 +37,11 @@ const colaborador = [
 const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
 function carregarDados() {
     if (localStorage.getItem('colaboradores') == null) {
-    localStorage.setItem('colaboradores', JSON.stringify(colaborador));
-    } 
+        localStorage.setItem('colaboradores', JSON.stringify(colaborador));
+    }
 }
 
-function carregarDashboard(colaboradores) {
+async function carregarDashboard(colaboradores) {
     let totalCadastros = colaboradores.length;
     let totalInativos = colaboradores.filter(colaborador => colaborador.status === 'Inativo').length;
     let totalPendentes = 0;
@@ -66,7 +66,12 @@ function carregarDadosGeraisHome() {
     carregarDashboard(colaboradores);
 }
 
-function criarLista(colaboradores) {
+async function criarLista() {
+    const colaboradoresApi = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
+        .then(response => response.json())
+
+    console.log(colaboradoresApi);
+
     let lista = document.getElementById('lista');
 
     lista.innerHTML = `
@@ -78,7 +83,7 @@ function criarLista(colaboradores) {
         </li>
     `;
 
-    colaboradores.forEach(colaborador => {
+    colaboradoresApi.forEach(colaborador => {
         let spanNome = document.createElement('span');
         spanNome.innerText = colaborador.nome;
         let spanEmail = document.createElement('span');
@@ -88,8 +93,11 @@ function criarLista(colaboradores) {
         spanStatus.innerText = colaborador.status;
         spanStatus.setAttribute('class', 'span-status');
 
-        if (spanStatus.innerText === 'Inativo') {
+        if (spanStatus.innerText === 'false') {
+            spanStatus.innerText = 'Inativo';
             spanStatus.setAttribute('class', 'inativo');
+        } else {
+            spanStatus.innerText = 'Ativo';
         }
 
         let spanAcoes = document.createElement('span');
