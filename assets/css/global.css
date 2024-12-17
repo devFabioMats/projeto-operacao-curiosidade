@@ -210,6 +210,15 @@ main header div.box-perfil #sair {
     cursor: pointer;
 }
 
+span.acoes #editar {
+    margin-right: 10px;
+    color: rgb(99, 81, 5);
+}
+
+span.acoes #excluir {
+    color: darkred;
+}
+
 .box-pesquisar .material-symbols-outlined {
     position: absolute;
     margin-left: 10px;
@@ -217,7 +226,7 @@ main header div.box-perfil #sair {
 }
 
 .acoes .material-symbols-outlined {
-    color: darkred;
+    
     padding: 0.2rem;
     background-color: rgb(255, 230, 230);
     border-radius: 50%;
@@ -232,8 +241,12 @@ main header div.box-perfil #sair {
     border: 1px solid black;
 }
 
-.material-symbols-outlined {
+.material-symbols-outlined#deletar {
     color: darkred;
+}
+
+.material-symbols-outlined#editar {
+    color: rgb(240, 199, 16);
 }
 
 .lista-item span.inativo {
@@ -276,7 +289,6 @@ main section.box-tabela {
     padding: 0.4rem 1rem;
     margin: 0;
     border-bottom: 1px solid #0000003a;
-
     right: 0;
 }
 
