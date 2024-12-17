@@ -1,10 +1,4 @@
-const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
-function carregarDados() {
-    if (localStorage.getItem('colaboradores') == null) {
-        localStorage.setItem('colaboradores', JSON.stringify(colaborador));
-    }
-}
-
+// GET dashboard
 async function carregarDashboard(colaboradores) {
     let totalCadastros = colaboradores.length;
     let totalInativos = colaboradores.filter(colaborador => colaborador.status === 'Inativo').length;
@@ -21,12 +15,8 @@ async function carregarDashboard(colaboradores) {
     document.getElementById('pendentes').querySelector('h1').innerText = totalPendentes;
 }
 
-function carregarDadosGerais() {
-    criarLista(colaboradores);
-}
-
-// GET all
-async function carregarDadosGeraisHome() {
+// GET todos os colaboradores
+async function carregarColaboradores() {
     let todosColaboradores = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
         .then(response => {
             if (!response.ok) {
@@ -36,10 +26,93 @@ async function carregarDadosGeraisHome() {
         })
     criarLista(todosColaboradores);
 
-    carregarDashboard(colaboradores);
 }
 
-// GET
+// GET por nome
+const pesquisar = document.getElementById('box-pesquisar');
+if (pesquisar) {
+    pesquisar.addEventListener('keyup', () => {
+        let pesquisarValor = pesquisar.value.toLowerCase();
+        const lista = document.getElementById('lista');
+
+        lista.innerHTML = `
+            <li class="lista-header">
+                <span>NOME</span>
+                <span id="span-email">EMAIL</span>
+                <span id="span-status">STATUS</span>
+                <span class="acoes">AÇÕES</span>
+            </li>
+        `;
+        if (pesquisarValor === "") {
+            carregarColaboradoresHome();
+        } else {
+            fetch(`https://localhost:7123/oc-api/Colaborador/ObterPorNome?nome=${pesquisarValor}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Falha na requisição');
+                    }
+                    return response.json();
+                })
+                .then(colaboradoresPesquisados => {
+                    criarLista(colaboradoresPesquisados);
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+    });
+}
+
+// GET por id
+async function pesquisarPorId(idColaborador) {
+    let colaboradorPesquisado = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`)
+        .then((response) => {   // then, pegue a resposta do servidor
+            if (!response.ok) {
+                throw new Error('Falha na requisição');
+            }
+            return response.json();
+        })
+        .catch(error => console.error('Erro:', error));
+
+    console.log(colaboradorPesquisado);
+}
+
+// PUT
+function editarColaborador(idColaborador) {
+    console.log("antes de redirencioar");
+    window.location.href = "../pages/tela-editar-cadastro.html";
+    console.log("depois de redirecionar");
+    pesquisarPorId(idColaborador);
+    // let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+    // colaboradores = colaboradores.filter(colaborador => colaborador.id !== idColaborador);
+    // localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+    // carregarColaboradores();
+    // alert("🗑️ Colaborador deletado!");
+    // window.location.reload();
+}
+
+// DELETE
+function deletarColaborador(idColaborador) {
+    fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha na requisição');
+            }
+            return response.json();
+        })
+        .catch(error => console.error('Erro:', error));
+
+    window.location.reload();
+}
+
+function carregarColaboradoresHome() {
+    carregarColaboradores();
+    //carregarDashboard(colaboradores);
+}
+
 function criarLista(colaboradores) {
     let lista = document.getElementById('lista');
 
@@ -98,66 +171,4 @@ function criarLista(colaboradores) {
 
         lista.appendChild(li);
     })
-}
-
-// 
-function editarColaborador(idcolaborador) {
-    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-    colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
-    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-    carregarDadosGerais();
-    alert("🗑️ Colaborador deletado!");
-    window.location.reload();
-}
-
-// DELETE
-function deletarColaborador(idcolaborador) {
-    fetch(`https://localhost:7123/oc-api/Colaborador/${idcolaborador}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Falha na requisição');
-            }
-            return response.json();
-        })
-        .catch(error => console.error('Erro:', error));
-    
-    window.location.reload();
-}
-
-// GET by name
-const pesquisar = document.getElementById('box-pesquisar');
-if (pesquisar) {
-    pesquisar.addEventListener('keyup', () => {
-        let pesquisarValor = pesquisar.value.toLowerCase();
-        const lista = document.getElementById('lista');
-
-        lista.innerHTML = `
-            <li class="lista-header">
-                <span>NOME</span>
-                <span id="span-email">EMAIL</span>
-                <span id="span-status">STATUS</span>
-                <span class="acoes">AÇÕES</span>
-            </li>
-        `;
-        if (pesquisarValor === "") {
-            carregarDadosGeraisHome();
-        } else {
-            fetch(`https://localhost:7123/oc-api/Colaborador/ObterPorNome?nome=${pesquisarValor}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Falha na requisição');
-                    }
-                    return response.json();
-                })
-                .then(colaboradoresPesquisados => {
-                    criarLista(colaboradoresPesquisados);
-                })
-                .catch(error => console.error('Erro:', error));
-        }
-    });
 }
