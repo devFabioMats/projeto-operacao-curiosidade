@@ -77,9 +77,7 @@ async function pesquisarPorId(idColaborador) {
 
 // PUT
 function editarColaborador(idColaborador) {
-    console.log("antes de redirencioar");
     window.location.href = "../pages/tela-editar-cadastro.html";
-    console.log("depois de redirecionar");
     pesquisarPorId(idColaborador);
     // let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
     // colaboradores = colaboradores.filter(colaborador => colaborador.id !== idColaborador);
