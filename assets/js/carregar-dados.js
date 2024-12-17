@@ -25,6 +25,7 @@ function carregarDadosGerais() {
     criarLista(colaboradores);
 }
 
+// GET all
 async function carregarDadosGeraisHome() {
     let todosColaboradores = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
         .then(response => {
@@ -38,6 +39,7 @@ async function carregarDadosGeraisHome() {
     carregarDashboard(colaboradores);
 }
 
+// GET
 function criarLista(colaboradores) {
     let lista = document.getElementById('lista');
 
@@ -98,6 +100,7 @@ function criarLista(colaboradores) {
     })
 }
 
+// 
 function editarColaborador(idcolaborador) {
     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
     colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
@@ -107,16 +110,26 @@ function editarColaborador(idcolaborador) {
     window.location.reload();
 }
 
+// DELETE
 function deletarColaborador(idcolaborador) {
-    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-    colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
-    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-    carregarDadosGerais();
-    alert("🗑️ Colaborador deletado!");
+    fetch(`https://localhost:7123/oc-api/Colaborador/${idcolaborador}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha na requisição');
+            }
+            return response.json();
+        })
+        .catch(error => console.error('Erro:', error));
+    
     window.location.reload();
 }
 
-// pesquisarColaborador
+// GET by name
 const pesquisar = document.getElementById('box-pesquisar');
 if (pesquisar) {
     pesquisar.addEventListener('keyup', () => {
