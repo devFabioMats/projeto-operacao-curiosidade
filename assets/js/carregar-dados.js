@@ -1,39 +1,3 @@
-const colaborador = [
-    {
-        id: 123456,
-        status: "Ativo",
-        nome: "Fabio Matsumoto",
-        idade: 21,
-        email: "fabio@gmail.com",
-        endereco: "Rua da Unimed, 543",
-        interesses: "Judô, Futebol, Música",
-        sentimento: "Amor pelo que faz",
-        valores: "Retribuir a família"
-    },
-    {
-        id: 513754,
-        status: "Ativo",
-        nome: "Junior Nelson",
-        idade: 18,
-        email: "juninho@hotmail.com",
-        endereco: "",
-        interesses: "",
-        sentimento: "",
-        valores: ""
-    },
-    {
-        id: 784215,
-        status: "Inativo",
-        nome: "Matheus Santana",
-        idade: 21,
-        email: "matheus_luanete@outlook.com",
-        endereco: "Rua Brigadeiro",
-        interesses: "Ir ao show do Luan Santa",
-        sentimento: "Amor pelo Luan Santana",
-        valores: "Luan Santana"
-    },
-]
-
 const colaboradores = JSON.parse(localStorage.getItem('colaboradores'));
 function carregarDados() {
     if (localStorage.getItem('colaboradores') == null) {
@@ -61,17 +25,20 @@ function carregarDadosGerais() {
     criarLista(colaboradores);
 }
 
-function carregarDadosGeraisHome() {
-    criarLista(colaboradores);
+async function carregarDadosGeraisHome() {
+    let todosColaboradores = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha na requisição');
+            }
+            return response.json();
+        })
+    criarLista(todosColaboradores);
+
     carregarDashboard(colaboradores);
 }
 
-async function criarLista() {
-    const colaboradoresApi = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
-        .then(response => response.json())
-
-    console.log(colaboradoresApi);
-
+function criarLista(colaboradores) {
     let lista = document.getElementById('lista');
 
     lista.innerHTML = `
@@ -83,7 +50,7 @@ async function criarLista() {
         </li>
     `;
 
-    colaboradoresApi.forEach(colaborador => {
+    colaboradores.forEach(colaborador => {
         let spanNome = document.createElement('span');
         spanNome.innerText = colaborador.nome;
         let spanEmail = document.createElement('span');
@@ -103,12 +70,21 @@ async function criarLista() {
         let spanAcoes = document.createElement('span');
         spanAcoes.classList.add('acoes');
 
+        let btnEditar = document.createElement('span');
+        btnEditar.classList.add('material-symbols-outlined');
+        btnEditar.setAttribute('id', 'editar');
+        btnEditar.innerText = 'edit';
+        btnEditar.style.cursor = 'pointer';
+        btnEditar.addEventListener('click', () => editarColaborador(colaborador.id));
+
         let btnDeletar = document.createElement('span');
         btnDeletar.classList.add('material-symbols-outlined');
+        btnDeletar.setAttribute('id', 'deletar');
         btnDeletar.innerText = 'delete_forever';
         btnDeletar.style.cursor = 'pointer';
         btnDeletar.addEventListener('click', () => deletarColaborador(colaborador.id));
 
+        spanAcoes.appendChild(btnEditar);
         spanAcoes.appendChild(btnDeletar);
 
         let li = document.createElement('li');
@@ -122,6 +98,15 @@ async function criarLista() {
     })
 }
 
+function editarColaborador(idcolaborador) {
+    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
+    colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
+    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
+    carregarDadosGerais();
+    alert("🗑️ Colaborador deletado!");
+    window.location.reload();
+}
+
 function deletarColaborador(idcolaborador) {
     let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
     colaboradores = colaboradores.filter(colaborador => colaborador.id !== idcolaborador);
@@ -131,6 +116,7 @@ function deletarColaborador(idcolaborador) {
     window.location.reload();
 }
 
+// pesquisarColaborador
 const pesquisar = document.getElementById('box-pesquisar');
 if (pesquisar) {
     pesquisar.addEventListener('keyup', () => {
@@ -146,12 +132,19 @@ if (pesquisar) {
             </li>
         `;
         if (pesquisarValor === "") {
-            criarLista(colaboradores);
+            carregarDadosGeraisHome();
         } else {
-            const resultados = colaboradores.filter(colaborador =>
-                colaborador.nome.toLowerCase().includes(pesquisarValor)
-            );
-            criarLista(resultados);
+            fetch(`https://localhost:7123/oc-api/Colaborador/ObterPorNome?nome=${pesquisarValor}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Falha na requisição');
+                    }
+                    return response.json();
+                })
+                .then(colaboradoresPesquisados => {
+                    criarLista(colaboradoresPesquisados);
+                })
+                .catch(error => console.error('Erro:', error));
         }
     });
 }
