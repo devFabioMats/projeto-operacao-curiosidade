@@ -1,11 +1,9 @@
+const urlPost = 'https://localhost:7123/oc-api/Colaborador';
+
 document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     event.preventDefault();
     gravar();
 });
-
-function gerarId() {
-    return Math.floor(Math.random() * 1000000);
-}
 
 function validacao(nome, email, idade) {
     if (nome == "") {
@@ -22,20 +20,19 @@ function validacao(nome, email, idade) {
 }
 
 function gravar() {
-    let id = gerarId();
     let nome = document.getElementById("nome-cadastro").value;
     let status = document.getElementById("status");
-    let idade = document.getElementById("idade").value;
+    let idade = Number.parseInt(document.getElementById("idade").value);
     let email = document.getElementById("email").value;
     let endereco = document.getElementById("endereco").value;
     let interesses = document.getElementById("interesses").value;
-    let sentimento = document.getElementById("sentimento").value;
+    let sentimentos = document.getElementById("sentimentos").value;
     let valores = document.getElementById("valores").value;
 
     if (status.checked) {
-        status = "Ativo";
+        status = true;
     } else {
-        status = "Inativo";
+        status = false;
     }
 
     if (!validacao(nome, email, idade)) {
@@ -43,24 +40,29 @@ function gravar() {
     }
 
     let colaborador = {
-        id,
         status,
         nome,
         idade,
         email,
         endereco,
         interesses,
-        sentimento,
+        sentimentos,
         valores
     };
-
-    let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-
-    colaboradores.push(colaborador);
-
-    localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-
-    alert("✅ Colaborador cadastrado!");
+    debugger;
+    fetch('https://localhost:7123/oc-api/Colaborador', {
+        method: 'POST',
+        headers: {
+            Accept: 'application.json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(colaborador)
+    }).then(response => {
+        if (!response.ok) {
+            console.log(response)
+            return new Error('falhou a requisição');
+        }
+    }).catch(error => console.error('Erro:', error));
 
     window.location.href = "../pages/tela-cadastro.html";
 }
