@@ -17,8 +17,8 @@ function validacao() {
         return;
     }
 
-    if (!login_usuario.includes("@") || !login_usuario.includes(".com")) {
-        alert("⚠️ O campo de login deve conter um '@' e '.com'.");
+    if (!login_usuario.includes("@") || !login_usuario.includes(".")) {
+        alert("⚠️ O campo de login deve conter um '@' e o '.dominio'.");
         return;
     }
 
