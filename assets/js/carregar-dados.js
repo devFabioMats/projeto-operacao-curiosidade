@@ -64,7 +64,7 @@ if (pesquisar) {
 // GET por id
 async function pesquisarPorId(idColaborador) {
     let colaboradorPesquisado = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`)
-        .then((response) => {   // then, pegue a resposta do servidor
+        .then(response => {   // then, pegue a resposta do servidor
             if (!response.ok) {
                 throw new Error('Falha na requisição');
             }
@@ -75,16 +75,17 @@ async function pesquisarPorId(idColaborador) {
     return colaboradorPesquisado;
 }
 
-// PUT
-function editarColaborador(idColaborador) {
-    window.location.href = "../pages/tela-editar-cadastro.html";
-    pesquisarPorId(idColaborador);
-    // let colaboradores = JSON.parse(localStorage.getItem('colaboradores')) || [];
-    // colaboradores = colaboradores.filter(colaborador => colaborador.id !== idColaborador);
-    // localStorage.setItem('colaboradores', JSON.stringify(colaboradores));
-    // carregarColaboradores();
-    // alert("🗑️ Colaborador deletado!");
-    // window.location.reload();
+function redirecionarEditarColaborador(idColaborador) {
+    window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
+}
+
+//PUT
+async function editarColaborador(idColaborador) {
+    debugger;
+    let colaborador = await pesquisarPorId(idColaborador);
+    console.log(colaborador);
+
+    document.getElementById('nome-editar').value = colaborador.nome;
 }
 
 // DELETE
@@ -148,7 +149,7 @@ function criarLista(colaboradores) {
         btnEditar.setAttribute('id', 'editar');
         btnEditar.innerText = 'edit';
         btnEditar.style.cursor = 'pointer';
-        btnEditar.addEventListener('click', () => editarColaborador(colaborador.id));
+        btnEditar.addEventListener('click', () => redirecionarEditarColaborador(colaborador.id));
 
         let btnDeletar = document.createElement('span');
         btnDeletar.classList.add('material-symbols-outlined');
@@ -169,4 +170,13 @@ function criarLista(colaboradores) {
 
         lista.appendChild(li);
     })
+}
+
+function getIdColaborador() {
+    const queryString = window.location.search; // Contains "?id=<The Given ID>"
+    const params = new URLSearchParams(queryString); // Converts the query string to javascript object
+
+    const idColaborador = params.get("id"); // Contains the ID given
+
+    editarColaborador(idColaborador);
 }

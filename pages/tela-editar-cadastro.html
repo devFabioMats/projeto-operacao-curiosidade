@@ -11,7 +11,7 @@
     <title>Editar Cadastro</title>
 </head>
 
-<body>
+<body onload="getIdColaborador()">
 
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
@@ -52,8 +52,8 @@
                 <h3>1º Fatos e Dados</h3>
             </div>
 
-            <label for="nome-cadastro">Nome</label>
-            <input type="text" id="nome-cadastro" name="nome">
+            <label for="nome-editar">Nome</label>
+            <input type="text" id="nome-editar" name="nome">
 
             <div class="linha-idade-email">
                 <div class="div-idade">
@@ -90,6 +90,7 @@
     </main>
 
     <script src="../assets/js/cadastrar-colaborador.js"></script>
+    <script src="../assets/js/carregar-dados.js"></script>
 </body>
 
 </html>
