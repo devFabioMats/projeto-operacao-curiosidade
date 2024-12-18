@@ -72,7 +72,7 @@ async function pesquisarPorId(idColaborador) {
         })
         .catch(error => console.error('Erro:', error));
 
-    console.log(colaboradorPesquisado);
+    return colaboradorPesquisado;
 }
 
 // PUT
