@@ -9,13 +9,24 @@ function validacao(nome, email, idade) {
     if (nome == "") {
         alert("⚠️ O campo nome deve estar preenchido.");
         return false;
-    } else if (email == "") {
+    } 
+
+    if (email == "") {
         alert("⚠️ O campo email deve estar preenchido.");
         return false;
-    } else if (idade == "") {
-        alert("⚠️ O campo idade deve estar preenchido.");
+    } else if (!email.includes("@") || !email.includes(".")) {
+        alert("⚠️ O campo de login deve conter um '@' e o '.dominio'.");
         return false;
     }
+
+    if (idade == "") {
+        alert("⚠️ O campo idade deve estar preenchido.");
+        return false;
+    } else if (idade < 18 || idade > 100) {
+        alert("⚠️ O colaborador deve ter entre 18 e 100 anos.");
+        return false;
+    }
+
     return true;
 }
 
