@@ -49,8 +49,8 @@ function gravar() {
         sentimentos,
         valores
     };
-    debugger;
-    fetch('https://localhost:7123/oc-api/Colaborador', {
+
+    fetch(urlPost, {
         method: 'POST',
         headers: {
             Accept: 'application.json',
