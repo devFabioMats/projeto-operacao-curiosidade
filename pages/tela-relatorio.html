@@ -12,7 +12,7 @@
     <title>Relatório</title>
 </head>
 
-<body>
+<body onload="verificarAutenticacao()">
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
             <div class="box-logo">
@@ -53,7 +53,14 @@
             </ul>
         </section>
     </main>
-
+    <script>
+        function verificarAutenticacao() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (isAuthenticated !== 'true') {
+                window.location.href = "../pages/tela-login.html";
+            }
+        }
+    </script>
 </body>
 
 </html>

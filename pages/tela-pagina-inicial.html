@@ -11,7 +11,7 @@
     <title>Página Inicial</title>
 </head>
 
-<body onload="carregarColaboradoresHome()">
+<body onload="verificarAutenticacao()">
 
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
@@ -63,6 +63,17 @@
     </main>
 
     <script src="../assets/js/carregar-dados.js"></script>
+    <script>
+        function verificarAutenticacao() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (isAuthenticated !== 'true') {
+                window.location.href = "../pages/tela-login.html";
+            } else {
+                carregarColaboradoresHome()
+            }
+        }
+    </script>
+    </body>
 </body>
 
 </html>
