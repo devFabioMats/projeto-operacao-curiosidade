@@ -1,5 +1,3 @@
-const urlPost = 'https://localhost:7123/oc-api/Colaborador';
-
 document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     event.preventDefault();
     gravar();
@@ -61,7 +59,7 @@ function gravar() {
         valores
     };
 
-    fetch(urlPost, {
+    fetch(`https://localhost:7123/oc-api/Colaborador`, {
         method: 'POST',
         headers: {
             Accept: 'application.json',
