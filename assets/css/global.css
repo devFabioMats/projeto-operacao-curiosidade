@@ -212,12 +212,9 @@ main header div.box-perfil #sair {
 
 span.acoes #editar {
     margin-right: 10px;
-    color: rgb(99, 81, 5);
+
 }
 
-span.acoes #excluir {
-    color: darkred;
-}
 
 .box-pesquisar .material-symbols-outlined {
     position: absolute;
@@ -243,10 +240,18 @@ span.acoes #excluir {
 
 .material-symbols-outlined#deletar {
     color: darkred;
+    border: 1px solid darkred;
 }
 
 .material-symbols-outlined#editar {
     color: rgb(240, 199, 16);
+    border: 1px solid rgb(190, 158, 13);
+    background-color: rgb(255, 247, 176);
+}
+
+.material-symbols-outlined#editar:hover {
+    border: 1px solid rgb(190, 158, 13);
+    background-color: rgb(243, 240, 77);
 }
 
 .lista-item span.inativo {
