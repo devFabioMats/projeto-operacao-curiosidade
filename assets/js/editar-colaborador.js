@@ -1,6 +1,5 @@
 document.querySelector("#btn-alterar").addEventListener("click", (event) => {
     event.preventDefault();
-    debugger;
     editar();
 });
 
@@ -30,6 +29,9 @@ function validacao(nome, email, idade) {
 }
 
 function editar() {
+    const queryString = window.location.search; // Contains "?id=<The Given ID>"
+    const params = new URLSearchParams(queryString); // Converts the query string to javascript object
+    const idColaborador = params.get("id"); // Contains the ID given
     let nome = document.getElementById("nome-editar").value;
     let status = document.getElementById("status");
     let idade = Number.parseInt(document.getElementById("idade").value);
