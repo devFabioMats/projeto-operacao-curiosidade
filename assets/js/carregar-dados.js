@@ -25,7 +25,6 @@ async function carregarColaboradores() {
             return response.json();
         })
     criarLista(todosColaboradores);
-
 }
 
 // GET por nome
@@ -75,17 +74,32 @@ async function pesquisarPorId(idColaborador) {
     return colaboradorPesquisado;
 }
 
+// REDIRECIONAR PARA TELA DE EDIÇÃO
 function redirecionarEditarColaborador(idColaborador) {
+    debugger;
+    //localStorage.setItem('idColaborador', idColaborador);
     window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
 }
 
 //PUT
-async function editarColaborador(idColaborador) {
+async function editarColaborador() {
     debugger;
+    const queryString = window.location.search; // Contains "?id=<The Given ID>"
+    const params = new URLSearchParams(queryString); // Converts the query string to javascript object
+    const idColaborador = params.get("id"); // Contains the ID given
+    
+    //window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
+    //const idColaboradorLocalStorage = localStorage.getItem('idColaborador');
+
     let colaborador = await pesquisarPorId(idColaborador);
-    console.log(colaborador);
 
     document.getElementById('nome-editar').value = colaborador.nome;
+    document.getElementById('idade').value = colaborador.idade;
+    document.getElementById('email').value = colaborador.email;
+    document.getElementById('endereco').value = colaborador.endereco;
+    document.getElementById('interesses').value = colaborador.interesses;
+    document.getElementById('sentimentos').value = colaborador.sentimentos;
+    document.getElementById('valores').value = colaborador.valores;
 }
 
 // DELETE
@@ -172,11 +186,24 @@ function criarLista(colaboradores) {
     })
 }
 
-function getIdColaborador() {
-    const queryString = window.location.search; // Contains "?id=<The Given ID>"
-    const params = new URLSearchParams(queryString); // Converts the query string to javascript object
+// function redirecionarEditarColaborador(idColaborador) {
+//     window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
+// }
 
-    const idColaborador = params.get("id"); // Contains the ID given
+// //PUT
+// async function editarColaborador(idColaborador) {
+//     debugger;
+//     let colaborador = await pesquisarPorId(idColaborador);
+//     console.log(colaborador);
 
-    editarColaborador(idColaborador);
-}
+//     document.getElementById('nome-editar').value = colaborador.nome;
+// }
+
+// function getIdColaborador() {
+//     const queryString = window.location.search; // Contains "?id=<The Given ID>"
+//     const params = new URLSearchParams(queryString); // Converts the query string to javascript object
+
+//     const idColaborador = params.get("id"); // Contains the ID given
+
+//     editarColaborador(idColaborador);
+// }
