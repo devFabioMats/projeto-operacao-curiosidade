@@ -24,7 +24,8 @@
             <li><span class="material-symbols-outlined">home</span><a href="tela-pagina-inicial.html">Home</a></li>
             <li id="cadastro"><span class="material-symbols-outlined">person_add</span><a
                     href="tela-cadastro.html">Cadastro</a></li>
-            <li id="relatorio"><span class="material-symbols-outlined">insert_chart</span><a href="tela-relatorio.html">Relatórios</a>
+            <li id="relatorio"><span class="material-symbols-outlined">insert_chart</span><a
+                    href="tela-relatorio.html">Relatórios</a>
             </li>
         </ul>
     </nav>
@@ -36,8 +37,8 @@
             </div>
             <div class="box-perfil">
                 <img src="../assets/pics/foto-perfil.jpg" alt="Foto de Perfil de Fabio">
-                <h3 id="nome"><a href="tela-login.html">Fabio Eizo Matsumoto</a></h3>
-                <h id="sair"><a href="tela-login.html">SAIR</a></h3>
+                <h3 id="nome"><a href="tela-login.html" onclick="logout()">Fabio Eizo Matsumoto</a></h3>
+                <h id="sair"><a href="tela-login.html" onclick="logout()">SAIR</a></h3>
             </div>
         </header>
         </section>
@@ -53,6 +54,8 @@
             </ul>
         </section>
     </main>
+
+    <script src="../assets/js/login.js"></script>
     <script>
         function verificarAutenticacao() {
             const isAuthenticated = localStorage.getItem('isAuthenticated');

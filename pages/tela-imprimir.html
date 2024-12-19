@@ -37,8 +37,8 @@
             </div>
             <div class="box-perfil">
                 <img src="../assets/pics/foto-perfil.jpg" alt="Foto de Perfil de Fabio">
-                <h3 id="nome"><a href="tela-login.html">Fabio Eizo Matsumoto</a></h3>
-                <h id="sair"><a href="tela-login.html">SAIR</a></h3>
+                <h3 id="nome"><a href="tela-login.html" onclick="logout()">Fabio Eizo Matsumoto</a></h3>
+                <h id="sair"><a href="tela-login.html" onclick="logout()">SAIR</a></h3>
             </div>
         </header>
         </section>
@@ -59,6 +59,7 @@
         </section>
     </main>
 
+    <script src="../assets/js/login.js"></script>
     <script src="../assets/js/carregar-dados.js"></script>
     <script>
         function verificarAutenticacao() {
