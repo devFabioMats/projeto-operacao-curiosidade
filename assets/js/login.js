@@ -1,38 +1,63 @@
-let tentativas = 3;
-const login = "fabio@gmail.com";
-const senha = 123;
-const btn = document.querySelector("#btn");
-
+const btn = document.querySelector("#btn-login");
 btn.addEventListener("click", (event) => {
     event.preventDefault();
-    validacao();
+    login();
 });
 
-function validacao() {
-    let login_usuario = document.getElementById("login").value;
-    let senha_usuario = document.getElementById("senha").value;
+function login() {
+    let email = document.getElementById('email').value;
+    let senha = document.getElementById('senha').value;
 
-    if (login_usuario === "" || senha_usuario === "") {
+    if (email === "" || senha === "") {
         alert("⚠️ Todos os campos devem estar preenchidos.");
         return;
     }
 
-    if (!login_usuario.includes("@") || !login_usuario.includes(".")) {
+    if (!email.includes("@") || !email.includes(".")) {
         alert("⚠️ O campo de login deve conter um '@' e o '.dominio'.");
         return;
     }
 
-    if (login_usuario != login || senha_usuario != senha) {
-        tentativas--;
-        alert("❌ Login ou senha incorretos. Tente novamente. (Tentativas restantes: " + tentativas + ")");
-        if (tentativas == 0) {
-            document.getElementById("login").disabled = true;
-            document.getElementById("senha").disabled = true;
-        }
-        return;
-    } else {
-        alert("✅ Login realizado com sucesso!");
-        window.location.href = "../pages/tela-pagina-inicial.html";
-    }
+    let loginUsuario = {
+        email,
+        senha
+    };
 
+    console.log(JSON.stringify(loginUsuario));
+    const retornoLoginApi = fetch(`https://localhost:7123/oc-api/Usuario/Login`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginUsuario)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Falha na requisição');
+            }
+            //         // Armazene o token de autenticação no localStorage (se a API retornar um token)
+            //         if (data.token) {
+            //             localStorage.setItem('token', data.token);
+            //             localStorage.setItem('isAuthenticated', 'true');
+            //         }
+            localStorage.setItem('isAuthenticated', 'true');
+            window.location.href = "../pages/tela-pagina-inicial.html";
+        }).catch(error => {
+            console.error('Erro:', error);
+            window.alert('❌ Login ou senha incorretos. Tente novamente.');
+        });
+}
+
+function verificarAutenticacao() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated !== 'true') {
+        window.location.href = "../pages/tela-login.html";
+    } else {
+        carregarColaboradores()
+    }
+}
+
+function logout() {
+    localStorage.setItem('isAuthenticated', 'false');
+    window.location.href = "../pages/tela-login.html";
 }
