@@ -90,8 +90,8 @@ async function editarColaborador() {
 }
 
 // DELETE
-function deletarColaborador(idColaborador) {
-    fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+async function deletarColaborador(idColaborador) {
+    await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
