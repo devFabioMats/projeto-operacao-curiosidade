@@ -93,10 +93,10 @@
     <script src="../assets/js/cadastrar-colaborador.js"></script>
     <script>
         function verificarAutenticacao() {
-            const isAuthenticated = localStorage.getItem('isAuthenticated');
-            if (isAuthenticated !== 'true') {
+            const isAuthenticated = localStorage.getItem(token);
+            if (isAuthenticated) {
                 window.location.href = "../pages/tela-login.html";
-            }
+            } 
         }
     </script>
 </body>
