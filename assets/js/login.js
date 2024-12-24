@@ -1,18 +1,18 @@
-// const btn = document.querySelector("#btn-login");
-// btn.addEventListener("click", event => {
-//     event.preventDefault();
-//     login();
-// });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.querySelector("#btn-login");
-    if (btn) {
-        btn.addEventListener("click", event => {
-            event.preventDefault();
-            login();
-        });
-    }
+const btn = document.querySelector("#btn-login");
+btn.addEventListener("click", event => {
+    event.preventDefault();
+    login();
 });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const btn = document.querySelector("#btn-login");
+//     if (btn) {
+//         btn.addEventListener("click", event => {
+//             event.preventDefault();
+//             login();
+//         });
+//     }
+// });
 
 async function login() {
     let email = document.getElementById('email').value;
@@ -65,7 +65,7 @@ function setTemporizador() {
 }
 
 function setTempoLimite() {
-    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 1;
+    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 30;
     localStorage.setItem('minutoLimite', minutoLimite);
 }
 
