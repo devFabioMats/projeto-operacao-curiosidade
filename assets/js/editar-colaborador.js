@@ -28,10 +28,10 @@ function validacao(nome, email, idade) {
     return true;
 }
 
-function editar() {
+async function editar() {
     const queryString = window.location.search; // Contains "?id=<The Given ID>"
     const params = new URLSearchParams(queryString); // Converts the query string to javascript object
-    const idColaborador = params.get("id"); // Contains the ID given
+    const idColaborador = Number.parseInt(params.get("id")); // Contains the ID given
     let nome = document.getElementById("nome-editar").value;
     let status = document.getElementById("status");
     let idade = Number.parseInt(document.getElementById("idade").value);
@@ -62,7 +62,22 @@ function editar() {
         valores
     };
 
-    fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+    console.log(colaborador);
+
+    // const response = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(colaborador)
+    // });
+
+    // if (!response.ok) {
+    //     console.log(response);
+    //     return new Error('falhou a requisição');
+    // }
+
+    await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'PUT',
         headers: {
             Accept: 'application.json',

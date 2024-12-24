@@ -76,7 +76,7 @@ async function pesquisarPorId(idColaborador) {
 async function editarColaborador() {
     const queryString = window.location.search; // Contains "?id=<The Given ID>"
     const params = new URLSearchParams(queryString); // Converts the query string to javascript object
-    const idColaborador = params.get("id"); // Contains the ID given
+    const idColaborador = Number.parseInt(params.get("id")); // Contains the ID given
 
     let colaborador = await pesquisarPorId(idColaborador);
 
