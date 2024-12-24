@@ -11,7 +11,7 @@
     <title>Editar Cadastro</title>
 </head>
 
-<body onload="verificarAutenticacao()">
+<body onload="carregarTelaEditarCadastro()">
 
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
@@ -93,12 +93,17 @@
     <script src="../assets/js/carregar-dados.js"></script>
     <script src="../assets/js/editar-colaborador.js"></script>
     <script>
+        function carregarTelaEditarCadastro() {
+            verificarSessao();
+            editarColaborador();
+        }
+        
         function verificarAutenticacao() {
-            const isAuthenticated = localStorage.getItem(token);
+            const isAuthenticated = localStorage.getItem(tokenUsuario);
             if (isAuthenticated) {
-                window.location.href = "../pages/tela-login.html";
-            } else {
                 editarColaborador();
+            } else {
+                window.location.href = "../pages/tela-login.html";
             }
         }
     </script>
