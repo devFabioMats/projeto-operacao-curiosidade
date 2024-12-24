@@ -1,9 +1,19 @@
-const btn = document.querySelector("#btn-login");
-btn.addEventListener("click", event => {
-    event.preventDefault();
-    login();
+// const btn = document.querySelector("#btn-login");
+// btn.addEventListener("click", event => {
+//     event.preventDefault();
+//     login();
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector("#btn-login");
+    if (btn) {
+        btn.addEventListener("click", event => {
+            event.preventDefault();
+            login();
+        });
+    }
 });
-//---------------------------------------------------------
+
 async function login() {
     let email = document.getElementById('email').value;
     let senha = document.getElementById('senha').value;
@@ -48,38 +58,6 @@ async function login() {
         window.location.href = "../pages/tela-pagina-inicial.html";
     }
 }
-//---------------------------------------------------------
-
-// async function login() {
-//     let email = document.getElementById('email').value;
-//     let senha = document.getElementById('senha').value;
-
-//     if (email === "" || senha === "") {
-//         alert("⚠️ Todos os campos devem estar preenchidos.");
-//         return;
-//     }
-
-//     if (!email.includes("@") || !email.includes(".")) {
-//         alert("⚠️ O campo de login deve conter um '@' e o '.dominio'.");
-//         return;
-//     }
-
-//     let loginUsuario = {
-//         email,
-//         senha
-//     };
-
-//     requisicao = await fetch(`https://localhost:7123/oc-api/Usuario/Login`, {method: 'POST', headers: {Accept: 'application/json', 'Content-Type': 'application/json'}, body: JSON.stringify(loginUsuario)});
-
-//     const requisicaoJson = await requisicao.json();
-//     const token = requisicaoJson.token;
-//     console.log(token);
-//     localStorage.setItem('tokenUsuario', token);
-//     if (token) {
-//         setTemporizador();
-//         window.location.href = "../pages/tela-pagina-inicial.html";
-//     }
-// }
 
 function setTemporizador() {
     setTempoAtual();
