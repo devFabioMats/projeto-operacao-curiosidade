@@ -12,7 +12,7 @@
     <title>Relatório</title>
 </head>
 
-<body onload="verificarAutenticacao()">
+<body onload="carregarTelaImprimir()">
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
             <div class="box-logo">
@@ -62,13 +62,9 @@
     <script src="../assets/js/login.js"></script>
     <script src="../assets/js/carregar-dados.js"></script>
     <script>
-        function verificarAutenticacao() {
-            const isAuthenticated = localStorage.getItem(token);
-            if (isAuthenticated) {
-                window.location.href = "../pages/tela-login.html";
-            } else {
-                carregarColaboradores()
-            }
+        function carregarTelaImprimir() {
+            verificarSessao();
+            carregarColaboradores();
         }
     </script>
 </body>

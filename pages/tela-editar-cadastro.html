@@ -97,15 +97,6 @@
             verificarSessao();
             editarColaborador();
         }
-        
-        function verificarAutenticacao() {
-            const isAuthenticated = localStorage.getItem(tokenUsuario);
-            if (isAuthenticated) {
-                editarColaborador();
-            } else {
-                window.location.href = "../pages/tela-login.html";
-            }
-        }
     </script>
 
 </body>

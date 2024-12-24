@@ -11,7 +11,7 @@
     <title>Novo Cadastro</title>
 </head>
 
-<body onload="verificarAutenticacao()">
+<body onload="verificarSessao()">
 
     <nav>
         <a href="tela-pagina-inicial.html" class="logo">
@@ -91,14 +91,6 @@
 
     <script src="../assets/js/login.js"></script>
     <script src="../assets/js/cadastrar-colaborador.js"></script>
-    <script>
-        function verificarAutenticacao() {
-            const isAuthenticated = localStorage.getItem(token);
-            if (isAuthenticated) {
-                window.location.href = "../pages/tela-login.html";
-            } 
-        }
-    </script>
 </body>
 
 </html>

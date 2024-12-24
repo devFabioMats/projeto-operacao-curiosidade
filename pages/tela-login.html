@@ -8,7 +8,7 @@
     <title>Login</title>
 </head>
 
-<body>
+<body onload="criarToken()">
     <main>
         <div class="container">
             <div id="perfil">
@@ -24,6 +24,11 @@
     </main>
     <script src="../assets/js/login.js"></script>
     <script src="../assets/js/carregar-dados.js"></script>
+    <script>
+        function criarToken() {
+            localStorage.setItem('tokenUsuario', false);
+        }
+    </script>
 </body>
 
 </html>
