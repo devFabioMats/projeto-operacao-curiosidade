@@ -117,6 +117,7 @@ nav ul li a:hover {
 
 ul>li:hover {
     background-color: lightgrey;
+    border-radius: 10px;
 }
 
 .lista-header:hover {
