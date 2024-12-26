@@ -1,5 +1,6 @@
 document.querySelector("#btn-alterar").addEventListener("click", (event) => {
     event.preventDefault();
+    verificarSessao();
     editar();
 });
 
@@ -64,32 +65,32 @@ async function editar() {
 
     console.log(colaborador);
 
-    // const response = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
-    //     method: 'PUT',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(colaborador)
-    // });
-
-    // if (!response.ok) {
-    //     console.log(response);
-    //     return new Error('falhou a requisição');
-    // }
-
-    await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+    const response = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'PUT',
         headers: {
             Accept: 'application.json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(colaborador)
-    }).then(response => {
-        if (!response.ok) {
-            console.log(response)
-            return new Error('falhou a requisição');
-        }
-    }).catch(error => console.error('Erro:', error));
+    });
+    if (!response.ok) {
+        console.log(response);
+        return new Error('falhou a requisição');
+    }
+
+    // await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //         Accept: 'application.json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(colaborador)
+    // }).then(response => {
+    //     if (!response.ok) {
+    //         console.log(response)
+    //         return new Error('falhou a requisição');
+    //     }
+    // }).catch(error => console.error('Erro:', error));
 
     window.location.href = "../pages/tela-cadastro.html";
 }
