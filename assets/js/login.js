@@ -65,7 +65,7 @@ function setTemporizador() {
 }
 
 function setTempoLimite() {
-    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 30;
+    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 1;
     localStorage.setItem('minutoLimite', minutoLimite);
 }
 
