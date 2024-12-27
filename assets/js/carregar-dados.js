@@ -61,7 +61,7 @@ if (pesquisar) {
 // GET por id
 async function pesquisarPorId(idColaborador) {
     let colaboradorPesquisado = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`)
-        .then(response => {   // then, pegue a resposta do servidor
+        .then(response => { 
             if (!response.ok) {
                 throw new Error('Falha na requisição');
             }
