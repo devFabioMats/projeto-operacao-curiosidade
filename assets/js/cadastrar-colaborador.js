@@ -1,13 +1,14 @@
 document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     event.preventDefault();
-    gravar();
+    setTempoAtual();
+    verificarSessaoEGravar();
 });
 
 function validacao(nome, email, idade) {
     if (nome == "") {
         alert("⚠️ O campo nome deve estar preenchido.");
         return false;
-    } 
+    }
 
     if (email == "") {
         alert("⚠️ O campo email deve estar preenchido.");
@@ -74,4 +75,32 @@ function gravar() {
     }).catch(error => console.error('Erro:', error));
 
     window.location.href = "../pages/tela-cadastro.html";
+}
+
+function setTempoAtual() {
+    const d = new Date();
+    let horaAtual = d.getHours() * 60;
+    let minutoAtual = d.getMinutes();
+    let minutoTotal = horaAtual + minutoAtual;
+    localStorage.setItem('minutoTotal', minutoTotal);
+}
+
+function logout() {
+    localStorage.removeItem('tokenUsuario');
+    localStorage.removeItem('minutoTotal');
+    localStorage.removeItem('minutoLimite');
+    window.alert('⏰ Sessão expirada. Faça login novamente.');
+    window.location.href = "../pages/tela-login.html";
+}
+
+function verificarSessaoEGravar() {
+    setTempoAtual();
+    if (localStorage.getItem('tokenUsuario') == 'false') {
+        window.location.href = "../pages/tela-login.html";
+        logout();
+    } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
+        logout();
+    } else {
+        gravar();
+    }
 }

@@ -177,3 +177,31 @@ function criarLista(colaboradores) {
         lista.appendChild(li);
     })
 }
+
+function setTempoAtual() {
+    const d = new Date();
+    let horaAtual = d.getHours() * 60;
+    let minutoAtual = d.getMinutes();
+    let minutoTotal = horaAtual + minutoAtual;
+    localStorage.setItem('minutoTotal', minutoTotal);
+}
+
+function logout() {
+    localStorage.removeItem('tokenUsuario');
+    localStorage.removeItem('minutoTotal');
+    localStorage.removeItem('minutoLimite');
+    window.alert('⏰ Sessão expirada. Faça login novamente.');
+    window.location.href = "../pages/tela-login.html";
+}
+
+function verificarSessaoEDeletar() {
+    setTempoAtual();
+    if (localStorage.getItem('tokenUsuario') == 'false') {
+        window.location.href = "../pages/tela-login.html";
+        logout();
+    } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
+        logout();
+    } else {
+        deletarColaborador(idColaborador);
+    }
+}

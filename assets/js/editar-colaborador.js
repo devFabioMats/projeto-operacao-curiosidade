@@ -1,7 +1,6 @@
 document.querySelector("#btn-alterar").addEventListener("click", (event) => {
     event.preventDefault();
-    verificarSessao();
-    editar();
+    verificarSessaoEEditar();
 });
 
 function validacao(nome, email, idade) {
@@ -78,19 +77,33 @@ async function editar() {
         return new Error('falhou a requisição');
     }
 
-    // await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
-    //     method: 'PUT',
-    //     headers: {
-    //         Accept: 'application.json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(colaborador)
-    // }).then(response => {
-    //     if (!response.ok) {
-    //         console.log(response)
-    //         return new Error('falhou a requisição');
-    //     }
-    // }).catch(error => console.error('Erro:', error));
-
     window.location.href = "../pages/tela-cadastro.html";
+}
+
+function setTempoAtual() {
+    const d = new Date();
+    let horaAtual = d.getHours() * 60;
+    let minutoAtual = d.getMinutes();
+    let minutoTotal = horaAtual + minutoAtual;
+    localStorage.setItem('minutoTotal', minutoTotal);
+}
+
+function logout() {
+    localStorage.removeItem('tokenUsuario');
+    localStorage.removeItem('minutoTotal');
+    localStorage.removeItem('minutoLimite');
+    window.alert('⏰ Sessão expirada. Faça login novamente.');
+    window.location.href = "../pages/tela-login.html";
+}
+
+function verificarSessaoEEditar() {
+    setTempoAtual();
+    if (localStorage.getItem('tokenUsuario') == 'false') {
+        window.location.href = "../pages/tela-login.html";
+        logout();
+    } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
+        logout();
+    } else {
+        editar();
+    }
 }
