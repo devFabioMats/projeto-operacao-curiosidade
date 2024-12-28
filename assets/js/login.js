@@ -1,17 +1,12 @@
-document.querySelector("#btn-login").addEventListener("click", event => {
-    event.preventDefault();
-    login();
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector("#btn-login");
+    if (btn) {
+        btn.addEventListener("click", event => {
+            event.preventDefault();
+            login();
+        });
+    }
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const btn = document.querySelector("#btn-login");
-//     if (btn) {
-//         btn.addEventListener("click", event => {
-//             event.preventDefault();
-//             login();
-//         });
-//     }
-// });
 
 async function login() {
     let email = document.getElementById('email').value;
