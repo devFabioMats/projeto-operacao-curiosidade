@@ -110,7 +110,16 @@ async function deletarColaborador(idColaborador) {
 
 // REDIRECIONAR
 function redirecionarEditarColaborador(idColaborador) {
-    window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
+    setTempoAtual();
+    if (localStorage.getItem('tokenUsuario') == 'false') {
+        window.location.href = "../pages/tela-login.html";
+        logout();
+    } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
+        logout();
+        window.alert('⏰ Sessão expirada. Faça login novamente.');
+    } else {
+        window.location.href = `../pages/tela-editar-cadastro.html?id=${idColaborador}`;
+    }
 }
 
 function carregarColaboradoresHome() {
@@ -162,7 +171,7 @@ function criarLista(colaboradores) {
         btnDeletar.setAttribute('id', 'deletar');
         btnDeletar.innerText = 'delete_forever';
         btnDeletar.style.cursor = 'pointer';
-        btnDeletar.addEventListener('click', () => deletarColaborador(colaborador.id));
+        btnDeletar.addEventListener('click', () => verificarSessaoEDeletar(colaborador.id));
 
         spanAcoes.appendChild(btnEditar);
         spanAcoes.appendChild(btnDeletar);
@@ -193,13 +202,14 @@ function logout() {
     window.location.href = "../pages/tela-login.html";
 }
 
-function verificarSessaoEDeletar() {
+function verificarSessaoEDeletar(idColaborador) {
     setTempoAtual();
     if (localStorage.getItem('tokenUsuario') == 'false') {
         window.location.href = "../pages/tela-login.html";
         logout();
     } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
         logout();
+        window.alert('⏰ Sessão expirada. Faça login novamente.');
     } else {
         deletarColaborador(idColaborador);
     }
