@@ -103,7 +103,6 @@ function logout() {
     localStorage.removeItem('tokenUsuario');
     localStorage.removeItem('minutoTotal');
     localStorage.removeItem('minutoLimite');
-    window.alert('⏰ Sessão expirada. Faça login novamente.');
     window.location.href = "../pages/tela-login.html";
 }
 
@@ -112,8 +111,10 @@ function verificarSessaoEEditar() {
     if (localStorage.getItem('tokenUsuario') == 'false') {
         window.location.href = "../pages/tela-login.html";
         logout();
+        window.alert('⏰ Sessão expirada. Faça login novamente.');
     } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
         logout();
+        window.alert('⏰ Sessão expirada. Faça login novamente.');
     } else {
         editar();
     }
