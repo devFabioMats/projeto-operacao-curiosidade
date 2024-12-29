@@ -81,10 +81,22 @@ nav ul li {
     padding: .2rem;
 }
 
+nav ul li#home {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #D9D9D9;
+}
+
 nav ul li#cadastro {
     display: flex;
     flex-direction: row;
     border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+nav ul li#relatorio {
+    display: flex;
+    flex-direction: row;
     border-bottom: 1px solid #D9D9D9;
 }
 

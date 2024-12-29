@@ -1,3 +1,5 @@
+let tentativas = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector("#btn-login");
     if (btn) {
@@ -36,18 +38,34 @@ async function login() {
         body: JSON.stringify(loginUsuario)
     }).then(response => {
         if (!response.ok) {
-            throw new Error('Falha na requisição');
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error('401');
+                } else if (response.status === 429) {
+                    throw new Error('429');
+                } else {
+                    throw new Error('Falha na requisição');
+                }
+            }
         }
         return response.json();
     }).catch(error => {
-        console.error('Erro:', error);
-        window.alert('❌ Login ou senha incorretos. Tente novamente.');
+        console.log('Erro:', error);
+        if (error.message === '401') {
+            tentativas++;
+            window.alert(`❌ Login ou senha incorretos. Tentativas restantes: ${tentativasLimite - tentativas}`);
+        } else if (error.message === '429') {
+            window.alert('❌ Muitas tentativas. Tente novamente mais tarde.');
+        } else {
+            window.alert('❌ Ocorreu um erro inesperado. Tente novamente mais tarde.');
+        }
     });
 
     const token = requisicaoToken.token;
     console.log(token);
     localStorage.setItem('tokenUsuario', token);
     if (token) {
+        tentativas = 0;
         setTemporizador();
         window.location.href = "../pages/tela-pagina-inicial.html";
     }
@@ -59,7 +77,7 @@ function setTemporizador() {
 }
 
 function setTempoLimite() {
-    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 15;
+    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 30;
     localStorage.setItem('minutoLimite', minutoLimite);
 }
 
@@ -81,7 +99,6 @@ function logout() {
 function verificarSessao() {
     setTempoAtual();
     if (localStorage.getItem('tokenUsuario') == 'false') {
-        window.location.href = "../pages/tela-login.html";
         logout();
     } else if (Number.parseInt(localStorage.getItem('minutoLimite')) <= Number.parseInt(localStorage.getItem('minutoTotal'))) {
         logout();
