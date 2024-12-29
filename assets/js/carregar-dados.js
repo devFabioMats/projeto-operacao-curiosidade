@@ -190,7 +190,6 @@ function logout() {
     localStorage.removeItem('tokenUsuario');
     localStorage.removeItem('minutoTotal');
     localStorage.removeItem('minutoLimite');
-    window.alert('⏰ Sessão expirada. Faça login novamente.');
     window.location.href = "../pages/tela-login.html";
 }
 
