@@ -64,20 +64,31 @@ async function editar() {
 
     console.log(colaborador);
 
-    const response = await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
+    await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'PUT',
         headers: {
             Accept: 'application.json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(colaborador)
+    }).then(response => {
+        if (!response.ok) {
+            if (response.status === 400) {
+                throw new Error('400');
+            } else {
+                throw new Error('Falha na requisição');
+            }
+        }
+        window.location.href = "../pages/tela-cadastro.html";
+    }).catch(error => {
+        console.log('Erro:', error);
+        if (error.message === '400') {
+            window.alert("⚠️ Nome ou email já cadastrados em outro colaborador.");
+            window.location.href = "../pages/tela-cadastro.html"
+        } else {
+            window.alert('❌ Ocorreu um erro inesperado. Tente novamente mais tarde.');
+        }
     });
-    if (!response.ok) {
-        console.log(response);
-        return new Error('falhou a requisição');
-    }
-
-    window.location.href = "../pages/tela-cadastro.html";
 }
 
 function setTempoAtual() {
