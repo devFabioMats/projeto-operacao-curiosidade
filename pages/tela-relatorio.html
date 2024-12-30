@@ -9,7 +9,7 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Relatório</title>
+    <title>Relatórios</title>
 </head>
 
 <body onload="verificarSessao()">
@@ -22,7 +22,8 @@
         </a>
         <ul>
             <li><span class="material-symbols-outlined">home</span><a href="tela-pagina-inicial.html">Home</a></li>
-            <li id="cadastro"><span class="material-symbols-outlined">person_add</span><a href="tela-cadastro.html">Colaborador</a>
+            <li id="cadastro"><span class="material-symbols-outlined">person_add</span><a
+                    href="tela-cadastro.html">Colaborador</a>
             </li>
             <li id="relatorio"><span class="material-symbols-outlined">insert_chart</span><a
                     href="tela-relatorio.html">Relatórios</a>
@@ -44,7 +45,6 @@
                 <h id="sair"><a href="tela-login.html" onclick="logout()">SAIR</a></h3>
             </div>
         </header>
-        </section>
         <section class="box-tabela">
             <h2>Relatórios</h2>
             <ul class="lista">
@@ -52,13 +52,26 @@
                     <span>NOME</span>
                 </li>
                 <li class="lista-item">
-                    <a href="tela-imprimir.html"><span>Lista de usuários</span></a>
+                    <a href="tela-imprimir.html"><span>Lista de colaboradores</span></a>
+                </li>
+                <li class="lista-item">
+                    <a href="#" id="download-link"><span>Registro do sistema</span></a>
                 </li>
             </ul>
         </section>
     </main>
     <script src="../assets/js/login.js"></script>
-    <script src="../assets/js/cadastrar-colaborador.js"></script>
+    <script>
+        document.getElementById('download-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            const link = document.createElement('a');
+            link.href = 'https://localhost:7123/oc-api/Colaborador/DownloadLog';
+            link.download = '30122024.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 </body>
 
 </html>
