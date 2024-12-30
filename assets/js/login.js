@@ -1,4 +1,5 @@
 let tentativas = 0;
+let tentativasLimite = 3;
 
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector("#btn-login");
@@ -76,7 +77,7 @@ function setTemporizador() {
 }
 
 function setTempoLimite() {
-    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 1;
+    let minutoLimite = Number.parseInt(localStorage.getItem('minutoTotal')) + 30;
     localStorage.setItem('minutoLimite', minutoLimite);
 }
 
