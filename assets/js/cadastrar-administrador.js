@@ -1,3 +1,5 @@
+const token = localStorage.getItem('tokenUsuario');
+
 document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     event.preventDefault();
     setTempoAtual();
@@ -41,11 +43,11 @@ function gravar() {
         senha
     };
 
-    fetch(`https://localhost:7123/oc-api/Administrador`, {
+    fetch(`https://localhost:7123/oc-api/Usuario`, {
         method: 'POST',
         headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(administrador)
     }).then(response => {
@@ -54,9 +56,8 @@ function gravar() {
             throw new Error('Falha na requisição');
         }
         return response.json();
-    }).then(data => {
-        window.location.href = "../pages/tela-administrador.html";
     }).catch(error => console.error('Erro:', error));
+    window.location.href = "../pages/tela-administrador.html";
 }
 
 function setTempoAtual() {

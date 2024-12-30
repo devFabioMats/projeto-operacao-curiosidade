@@ -1,3 +1,5 @@
+const token = localStorage.getItem('tokenUsuario');
+
 document.querySelector("#btn-alterar").addEventListener("click", (event) => {
     event.preventDefault();
     verificarSessaoEEditar();
@@ -67,7 +69,8 @@ async function editar() {
     await fetch(`https://localhost:7123/oc-api/Usuario/${idAdministrador}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(administrador)
     }).then(response => {

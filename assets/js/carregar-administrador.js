@@ -1,3 +1,5 @@
+const token = localStorage.getItem('tokenUsuario');
+
 // GET todos os administradores
 async function carregarAdministradores() {
     let todosAdministradores = await fetch("https://localhost:7123/oc-api/Usuario/ObterTodos")
@@ -60,10 +62,11 @@ function criarListaAdministradores(administradores) {
 
 // DELETE administrador
 async function deletarAdministrador(idAdministrador) {
-    await fetch(`https://localhost:7123/oc-api/Administrador/${idAdministrador}`, {
+    await fetch(`https://localhost:7123/oc-api/Usuario/${idAdministrador}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         }
     })
         .then(response => {

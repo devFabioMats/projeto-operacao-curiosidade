@@ -1,3 +1,5 @@
+const token = localStorage.getItem('tokenUsuario');
+
 document.querySelector("#btn-gravar").addEventListener("click", (event) => {
     event.preventDefault();
     setTempoAtual();
@@ -63,14 +65,14 @@ function gravar() {
     fetch(`https://localhost:7123/oc-api/Colaborador`, {
         method: 'POST',
         headers: {
-            Accept: 'application.json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(colaborador)
     }).then(response => {
         if (!response.ok) {
             console.log(response)
-            return new Error('falhou a requisição');
+            throw new Error('falhou a requisição');
         }
     }).catch(error => console.error('Erro:', error));
 

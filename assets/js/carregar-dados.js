@@ -1,3 +1,5 @@
+const token = localStorage.getItem('tokenUsuario');
+
 // GET dashboard
 async function carregarDashboard() {
     let cards = await fetch("https://localhost:7123/oc-api/Colaborador/Dashboard")
@@ -94,7 +96,8 @@ async function deletarColaborador(idColaborador) {
     await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         }
     })
         .then(response => {

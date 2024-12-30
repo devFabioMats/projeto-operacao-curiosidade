@@ -29,9 +29,9 @@ function validacao(nome, email, idade) {
 }
 
 async function editar() {
-    const queryString = window.location.search; // Contains "?id=<The Given ID>"
-    const params = new URLSearchParams(queryString); // Converts the query string to javascript object
-    const idColaborador = Number.parseInt(params.get("id")); // Contains the ID given
+    const queryString = window.location.search; 
+    const params = new URLSearchParams(queryString); 
+    const idColaborador = Number.parseInt(params.get("id")); 
     let nome = document.getElementById("nome-editar").value;
     let status = document.getElementById("status");
     let idade = Number.parseInt(document.getElementById("idade").value);
@@ -40,6 +40,7 @@ async function editar() {
     let interesses = document.getElementById("interesses").value;
     let sentimentos = document.getElementById("sentimentos").value;
     let valores = document.getElementById("valores").value;
+    const token = localStorage.getItem('tokenUsuario');
 
     if (status.checked) {
         status = true;
@@ -61,14 +62,12 @@ async function editar() {
         sentimentos,
         valores
     };
-
-    console.log(colaborador);
-
+    
     await fetch(`https://localhost:7123/oc-api/Colaborador/${idColaborador}`, {
         method: 'PUT',
         headers: {
-            Accept: 'application.json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(colaborador)
     }).then(response => {
