@@ -1,6 +1,5 @@
 const token = localStorage.getItem('tokenUsuario');
 
-// GET dashboard
 async function carregarDashboard() {
     let cards = await fetch("https://localhost:7123/oc-api/Colaborador/Dashboard")
         .then(response => {
@@ -15,7 +14,6 @@ async function carregarDashboard() {
     document.getElementById('pendentes').querySelector('h1').innerText = cards.cadastrosPendentes;
 }
 
-// GET todos os colaboradores
 async function carregarColaboradores() {
     let todosColaboradores = await fetch("https://localhost:7123/oc-api/Colaborador/ObterTodos")
         .then(response => {
@@ -27,7 +25,6 @@ async function carregarColaboradores() {
     criarLista(todosColaboradores);
 }
 
-// GET por nome
 const pesquisar = document.getElementById('box-pesquisar');
 if (pesquisar) {
     pesquisar.addEventListener('keyup', () => {

@@ -1,6 +1,5 @@
 const token = localStorage.getItem('tokenUsuario');
 
-// GET todos os administradores
 async function carregarAdministradores() {
     let todosAdministradores = await fetch("https://localhost:7123/oc-api/Usuario/ObterTodos")
         .then(response => {
@@ -60,7 +59,6 @@ function criarListaAdministradores(administradores) {
     })
 }
 
-// DELETE administrador
 async function deletarAdministrador(idAdministrador) {
     await fetch(`https://localhost:7123/oc-api/Usuario/${idAdministrador}`, {
         method: 'DELETE',
@@ -80,7 +78,6 @@ async function deletarAdministrador(idAdministrador) {
     window.location.reload();
 }
 
-// REDIRECIONAR para editar administrador
 function redirecionarEditarAdministrador(idAdministrador) {
     window.location.href = `../pages/tela-editar-administrador.html?id=${idAdministrador}`;
 }
